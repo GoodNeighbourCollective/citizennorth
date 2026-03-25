@@ -7,13 +7,6 @@
   <meta name="description" content="Citizen North creates elevated visual content for luxury hospitality brands worldwide — photography, videography, and branded campaigns.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!--
-    FONT NOTE: This site is configured to use:
-      - Neue Montreal (display / body)  — download free from pangram-pangram.com
-      - Editorial New (serif accent)    — download from pangram-pangram.com
-    Place font files in /fonts/ and the @font-face in fonts.css will activate them.
-    Google Fonts below are fallbacks until then.
-  -->
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Cormorant+Garamond:ital,wght@0,400;1,400;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="style.css">
@@ -28,11 +21,26 @@
   <!-- Header -->
   <header class="header" id="header">
     <div class="header-inner">
+
       <a href="/" class="logo" id="logo">Citizen North</a>
+
+      <!-- Scrolling marquee strip — fades on both edges -->
+      <div class="header-marquee" aria-hidden="true">
+        <div class="header-marquee-track">
+          <span>Elevating hospitality and destinations through design and storytelling for more than a decade</span>
+          <span class="marquee-dot">&bull;</span>
+          <span>Elevating hospitality and destinations through design and storytelling for more than a decade</span>
+          <span class="marquee-dot">&bull;</span>
+          <span>Elevating hospitality and destinations through design and storytelling for more than a decade</span>
+          <span class="marquee-dot">&bull;</span>
+        </div>
+      </div>
+
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
         <span class="nav-toggle-plus">+</span>
         <span class="nav-toggle-label">Menu</span>
       </button>
+
     </div>
   </header>
 
@@ -91,13 +99,10 @@
   <!-- Intro -->
   <section class="intro">
     <div class="intro-inner">
+      <span class="intro-pill">Introduction</span>
       <p class="intro-text js-reveal">
         For over a decade, we have collaborated with luxury hospitality brands to craft elevated guest experiences through design. We are an agile, internationally experienced team driven by nuance, restraint, and a deep understanding of atmosphere. We do not impose a house style. Every project is tailored, expressive, and rooted in the identity of the property.
       </p>
-      <div class="intro-aside js-reveal-fade">
-        <p>Available for projects worldwide.</p>
-        <a href="#contact" class="link-arrow">Start a project <span>→</span></a>
-      </div>
     </div>
   </section>
 
@@ -158,50 +163,31 @@
 
   <!-- Services -->
   <section class="services" id="services">
-    <div class="services-top js-reveal-fade">
-      <span class="section-label">Core services and sectors</span>
-      <p class="services-intro">
-        Focused on hospitality and tourism, we provide full end-to-end production, guiding each project from concept and creative direction to final imagery and video. Our work captures the essence of each destination and property with precision and care.
-      </p>
+
+    <!-- Header block: pill + intro text -->
+    <div class="services-header js-reveal-fade">
+      <span class="services-pill">Core services and sectors</span>
+      <div class="services-header-body">
+        <p class="services-intro">
+          Focused on hospitality and tourism, we provide full end-to-end production, guiding each project from concept and creative direction to final imagery and video. Our work captures the essence of each destination and property with precision and care.
+        </p>
+      </div>
     </div>
 
+    <!-- Service names + sticky image -->
     <div class="services-layout">
       <ul class="services-list">
         <li class="service-row js-reveal-up" data-svc="0" style="--delay:0s">
-          <div class="service-row-inner">
-            <span class="service-num">01</span>
-            <div class="service-row-text">
-              <h3 class="service-name">Architectural</h3>
-              <p class="service-desc">Grand spaces and intimate corners — the full character of a property, rendered in light.</p>
-            </div>
-          </div>
+          <h3 class="service-name">Architectural</h3>
         </li>
-        <li class="service-row js-reveal-up" data-svc="1" style="--delay:0.05s">
-          <div class="service-row-inner">
-            <span class="service-num">02</span>
-            <div class="service-row-text">
-              <h3 class="service-name">Lifestyle</h3>
-              <p class="service-desc">Authentic moments and aspirational living — imagery that places the guest inside the experience.</p>
-            </div>
-          </div>
+        <li class="service-row js-reveal-up" data-svc="1" style="--delay:0.06s">
+          <h3 class="service-name">Lifestyle</h3>
         </li>
-        <li class="service-row js-reveal-up" data-svc="2" style="--delay:0.1s">
-          <div class="service-row-inner">
-            <span class="service-num">03</span>
-            <div class="service-row-text">
-              <h3 class="service-name">Videography</h3>
-              <p class="service-desc">Cinematic films and social-first content crafted to move people — from brand films to digital campaigns.</p>
-            </div>
-          </div>
+        <li class="service-row js-reveal-up" data-svc="2" style="--delay:0.12s">
+          <h3 class="service-name">Videography</h3>
         </li>
-        <li class="service-row js-reveal-up" data-svc="3" style="--delay:0.15s">
-          <div class="service-row-inner">
-            <span class="service-num">04</span>
-            <div class="service-row-text">
-              <h3 class="service-name">Commercial</h3>
-              <p class="service-desc">Campaign-level production for brands that demand creative precision and flawless execution.</p>
-            </div>
-          </div>
+        <li class="service-row js-reveal-up" data-svc="3" style="--delay:0.18s">
+          <h3 class="service-name">Commercial</h3>
         </li>
       </ul>
 
@@ -212,6 +198,7 @@
         <div class="svc-img svc-img--3 grad-2"></div>
       </div>
     </div>
+
   </section>
 
   <!-- Clients -->
