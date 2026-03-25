@@ -131,7 +131,7 @@ body {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 70%;
+  width: 45%;
   overflow: hidden;
   -webkit-mask-image: linear-gradient(
     to right,
