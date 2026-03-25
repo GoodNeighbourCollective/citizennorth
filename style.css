@@ -88,8 +88,16 @@ body {
   align-items: center;
   transition: transform 0.5s var(--ease), background 0.4s ease;
   background: transparent;
-  /* Thicker, more visible white bottom line */
-  border-bottom: 2px solid rgba(255,255,255,0.3);
+}
+/* Bottom border — same 1px style as nav hover underline, with side padding */
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: var(--pad);
+  right: var(--pad);
+  height: 1px;
+  background: rgba(255,255,255,0.85);
 }
 .header.is-hidden { transform: translateY(-100%); }
 .header.is-scrolled {
@@ -628,7 +636,7 @@ body {
   font-weight: 800;
   text-transform: uppercase;
   /* Scale by vw but also cap by vh so names fit inside their row */
-  font-size: clamp(5rem, min(9vw, 16vh), 16rem);
+  font-size: clamp(4rem, min(6vw, 13vh), 12rem);
   letter-spacing: -0.03em;
   line-height: 1;
   color: #fff;
@@ -819,7 +827,7 @@ body {
 .footer-cta:hover .footer-cta-text { color: var(--blue-deep); }
 
 .footer-cta-arrow {
-  font-size: clamp(8rem, 18vw, 28rem);
+  font-size: clamp(12rem, 26vw, 40rem);
   color: #1a1a1a;
   line-height: 0.9;
   flex-shrink: 0;
