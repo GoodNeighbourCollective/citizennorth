@@ -128,11 +128,11 @@ body {
 .logo.nav-is-open { color: var(--black); }
 
 /* ============================================================
-   HEADER MARQUEE — 30% width, true centre (grid middle column)
+   HEADER MARQUEE — 55% width, true centre (grid middle column)
    ============================================================ */
 .header-marquee {
-  width: 30%;
-  max-width: 48rem;
+  width: 55%;
+  max-width: 80rem;
   overflow: hidden;
   -webkit-mask-image: linear-gradient(
     to right,
@@ -162,7 +162,7 @@ body {
 .header-marquee-track span {
   font-family: var(--f-body);
   font-size: 1.45rem;
-  color: rgba(235,235,235,0.6);
+  color: rgba(255,255,255,0.92);
   letter-spacing: 0.02em;
 }
 
@@ -245,33 +245,36 @@ body {
   flex-direction: column;
   justify-content: center;
 }
-.nav-item { overflow: hidden; }
+.nav-item {
+  position: relative;
+}
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 1px;
+  background: var(--black);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.5s var(--ease);
+}
+.nav-item:hover::after { transform: scaleX(1); }
+
+.nav-link-clip { overflow: hidden; }
 
 .nav-link {
   display: inline-block;
   font-family: var(--f-display);
-  font-weight: 700;
+  font-weight: 800;
   font-size: clamp(6rem, min(16vw, 24vh), 22rem);
   color: var(--black);
   letter-spacing: -0.04em;
   line-height: 1.0;
   transform: translateY(115%);
   transition: transform 0.65s var(--ease), color 0.25s ease;
-  position: relative;
   cursor: pointer;
 }
 .nav-link:hover { color: var(--gold); }
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0.08em; left: 0;
-  width: 100%; height: 0.05em;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform 0.5s var(--ease);
-}
-.nav-link:hover::after { transform: scaleX(1); }
 
 .nav-overlay.nav-is-open .nav-item:nth-child(1) .nav-link { transform: translateY(0); transition-delay: 0.05s; }
 .nav-overlay.nav-is-open .nav-item:nth-child(2) .nav-link { transform: translateY(0); transition-delay: 0.10s; }
