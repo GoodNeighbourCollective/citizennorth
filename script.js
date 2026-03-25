@@ -66,7 +66,10 @@
   function handleScroll() {
     const y = window.scrollY;
     if (header) {
+      // Hide on scroll down past 120px
       header.classList.toggle('is-hidden', y > lastScrollY && y > 120);
+      // Add glass bg once scrolled past hero so text stays readable on white
+      header.classList.toggle('is-scrolled', y > (window.innerHeight * 0.75));
     }
     lastScrollY = y;
     ticking = false;

@@ -76,7 +76,7 @@ body {
 .work-thumb, .work-page-thumb { cursor: none; }
 
 /* ============================================================
-   HEADER
+   HEADER — transparent with white bottom line
    ============================================================ */
 .header {
   position: fixed;
@@ -86,12 +86,17 @@ body {
   padding: 0 var(--pad);
   display: flex;
   align-items: center;
-  transition: transform 0.5s var(--ease);
-  background: rgba(28, 28, 28, 0.95);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  transition: transform 0.5s var(--ease), background 0.4s ease;
+  background: transparent;
+  border-bottom: 1px solid rgba(255,255,255,0.18);
 }
 .header.is-hidden { transform: translateY(-100%); }
+/* Slight dark glass when scrolled past hero so text stays readable */
+.header.is-scrolled {
+  background: rgba(20,20,20,0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
 
 .header-inner {
   width: 100%;
@@ -116,24 +121,26 @@ body {
 .logo.nav-is-open { color: var(--black); }
 
 /* ============================================================
-   HEADER MARQUEE — scrolling strip with fade edges
+   HEADER MARQUEE — ~30% width, fade edges
    ============================================================ */
 .header-marquee {
-  flex: 1;
+  /* Constrained to ~30% of page, centred between logo and menu */
+  flex: 0 0 auto;
+  width: 30%;
+  max-width: 48rem;
   overflow: hidden;
-  /* Fade to transparent on both sides */
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0%,
-    black 12%,
-    black 88%,
+    black 15%,
+    black 85%,
     transparent 100%
   );
   mask-image: linear-gradient(
     to right,
     transparent 0%,
-    black 12%,
-    black 88%,
+    black 15%,
+    black 85%,
     transparent 100%
   );
 }
@@ -149,14 +156,14 @@ body {
 
 .header-marquee-track span {
   font-family: var(--f-body);
-  font-size: 1.25rem;
-  color: rgba(235,235,235,0.55);
+  font-size: 1.45rem;
+  color: rgba(235,235,235,0.6);
   letter-spacing: 0.02em;
 }
 
 .marquee-dot {
   color: rgba(235,235,235,0.3) !important;
-  font-size: 1rem !important;
+  font-size: 1.1rem !important;
 }
 
 @keyframes marqueeScroll {
@@ -313,12 +320,15 @@ body {
 
 .hero-heading {
   font-family: var(--f-display);
-  font-weight: 700;
+  font-weight: 800;
   font-size: clamp(9rem, 17vw, 24rem);
   line-height: 0.85;
   letter-spacing: -0.04em;
   color: var(--white);
   margin-bottom: 3.5rem;
+  /* Maximum boldness */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 .split-line { display: block; overflow: hidden; }
@@ -382,7 +392,7 @@ body {
    White bg, massive bold text, pill label, generous breathing room
    ============================================================ */
 .intro {
-  padding: 10rem var(--pad) 12rem;
+  padding: 16rem var(--pad) 12rem;
   background: #ffffff;
 }
 
@@ -624,53 +634,75 @@ body {
 }
 
 /* ============================================================
-   CLIENTS — white background
+   CLIENTS — shed.design two-column list style
    ============================================================ */
 .clients {
-  padding: var(--gap) 0;
-  overflow: hidden;
+  padding: var(--gap) var(--pad);
   background: #fff;
 }
-.clients-label {
-  padding: 0 var(--pad);
-  margin-bottom: 4rem;
+
+.clients-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+/* Pill label matching intro + services pills */
+.clients-pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(0,0,0,0.25);
+  border-radius: 10rem;
+  padding: 0.55rem 1.4rem;
+  font-family: var(--f-body);
+  font-size: 1.05rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #555;
+  align-self: flex-start;
   opacity: 0;
   transform: translateY(2rem);
   transition: opacity 0.6s ease, transform 0.6s var(--ease);
 }
-.clients-label.is-revealed { opacity: 1; transform: translateY(0); }
+.clients-pill.is-revealed { opacity: 1; transform: translateY(0); }
 
-.work .section-label,
-.clients .section-label { color: #888; }
-
-.clients-marquee {
-  overflow: hidden;
-  border-top: 1px solid rgba(0,0,0,0.08);
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-  padding: 3rem 0;
-}
-.clients-track {
+/* Two columns with vertical divider */
+.clients-list-wrap {
   display: flex;
-  align-items: center;
-  gap: 6rem;
-  white-space: nowrap;
-  width: max-content;
-  animation: scrollLeft 30s linear infinite;
+  gap: 0;
+  opacity: 0;
+  transform: translateY(3rem);
+  transition: opacity 0.8s ease 0.15s, transform 0.8s var(--ease) 0.15s;
 }
-.clients-track span {
+.clients-list-wrap.is-revealed { opacity: 1; transform: translateY(0); }
+
+.clients-col {
+  flex: 0 0 34%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.clients-col li {
   font-family: var(--f-display);
-  font-weight: 600;
-  font-size: clamp(1.8rem, 2vw, 2.6rem);
-  color: #aaa;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  transition: color 0.3s ease;
+  font-weight: 700;
+  font-size: clamp(2.2rem, 3vw, 4.5rem);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: #1a1a1a;
+  padding: 0.4rem 0;
+  transition: color 0.2s ease;
 }
-.clients-track span:hover { color: #1a1a1a; cursor: default; }
-@keyframes scrollLeft {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+.clients-col li:hover { color: #888; cursor: default; }
+
+.clients-divider {
+  width: 1px;
+  background: rgba(0,0,0,0.12);
+  margin: 0 6rem;
+  flex-shrink: 0;
 }
+
+.work .section-label { color: #888; }
 
 /* ============================================================
    CONTACT CTA
@@ -728,56 +760,97 @@ body {
 .cta-btn:hover { background: var(--gold); color: var(--black); transform: scale(1.04); }
 
 /* ============================================================
-   FOOTER
+   FOOTER — shed.design style: nav links + giant "SEE WORK" CTA
    ============================================================ */
 .footer {
-  background: var(--off-black);
-  padding: 7rem var(--pad) 4rem;
-  border-top: 1px solid rgba(235,235,235,0.06);
+  background: #fff;
+  padding: 8rem var(--pad) 0;
+  border-top: 1px solid rgba(0,0,0,0.08);
 }
-.footer-top {
+
+/* Top row: socials | nav links | legal */
+.footer-info {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 4rem;
-  padding-bottom: 7rem;
-  border-bottom: 1px solid rgba(235,235,235,0.06);
+  grid-template-columns: auto auto 1fr;
+  gap: 8rem;
+  padding-bottom: 8rem;
+  align-items: start;
 }
-.footer-brand {
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: 2.2rem;
-  letter-spacing: -0.02em;
+
+.footer-socials-col,
+.footer-links-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-socials-col a,
+.footer-links-col a {
+  font-family: var(--f-body);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  align-self: start;
+  color: #1a1a1a;
+  transition: color 0.2s ease;
 }
-.footer-nav {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-}
-.footer-col { display: flex; flex-direction: column; gap: 1.1rem; }
-.footer-col-title {
-  font-size: 1.05rem;
-  letter-spacing: 0.14em;
+.footer-socials-col a:hover,
+.footer-links-col a:hover { color: #999; }
+
+.footer-legal-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: flex-end;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--gray);
-  margin-bottom: 0.4rem;
+  color: #999;
 }
-.footer-col a { font-size: 1.4rem; color: rgba(235,235,235,0.65); transition: color 0.3s ease; }
-.footer-col a:hover { color: var(--white); }
-.footer-bottom {
+.footer-legal-col a {
+  color: #1a1a1a;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+.footer-legal-col a:hover { color: #999; }
+
+/* Giant "SEE WORK →" CTA at the bottom */
+.footer-cta {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  padding-top: 3rem;
-  font-size: 1.2rem;
-  color: var(--gray);
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding: 1rem 0 0;
+  text-decoration: none;
+  overflow: hidden;
+  transition: opacity 0.3s ease;
 }
-.footer-social { display: flex; gap: 2rem; }
-.footer-social a, .footer-bottom > a { color: var(--gray); transition: color 0.3s ease; }
-.footer-social a:hover, .footer-bottom > a:hover { color: var(--white); }
+.footer-cta:hover { opacity: 0.75; }
+
+.footer-cta-text {
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: clamp(7rem, 16vw, 24rem);
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  color: #1a1a1a;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+.footer-cta:hover .footer-cta-text { color: var(--blue-deep); }
+
+.footer-cta-arrow {
+  font-size: clamp(4rem, 10vw, 15rem);
+  color: #1a1a1a;
+  line-height: 1;
+  flex-shrink: 0;
+  padding-bottom: 0.5rem;
+  transition: color 0.3s ease, transform 0.4s var(--ease);
+}
+.footer-cta:hover .footer-cta-arrow {
+  color: var(--blue-deep);
+  transform: translateX(1.5rem);
+}
 
 /* ============================================================
    WORK PAGE
@@ -1098,8 +1171,10 @@ body {
   .work-grid { grid-template-columns: 1fr; }
   .work-item:nth-child(n) { grid-column: 1 / -1; }
   .contact-actions { flex-direction: column; align-items: flex-start; }
-  .footer-nav { grid-template-columns: 1fr 1fr; }
-  .footer-bottom { flex-direction: column; align-items: flex-start; }
+  .footer-info { grid-template-columns: 1fr; gap: 3rem; }
+  .footer-legal-col { align-items: flex-start; }
+  .clients-col li { font-size: clamp(1.8rem, 4vw, 3rem); }
+  .clients-divider { margin: 0 3rem; }
   .project-next { flex-direction: column; align-items: flex-start; }
 }
 
