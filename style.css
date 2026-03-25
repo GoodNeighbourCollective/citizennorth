@@ -88,22 +88,29 @@ body {
   align-items: center;
   transition: transform 0.5s var(--ease), background 0.4s ease;
   background: transparent;
-  border-bottom: 1px solid rgba(255,255,255,0.18);
+  /* Thicker, more visible white bottom line */
+  border-bottom: 2px solid rgba(255,255,255,0.3);
 }
 .header.is-hidden { transform: translateY(-100%); }
-/* Slight dark glass when scrolled past hero so text stays readable */
 .header.is-scrolled {
   background: rgba(20,20,20,0.88);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
 
+/* 3-column grid: logo | marquee (true centre) | menu */
 .header-inner {
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  gap: 2rem;
 }
+
+/* Logo stays left */
+.logo { justify-self: start; }
+
+/* Menu toggle pushed hard right */
+.nav-toggle { justify-self: end; }
 
 /* Logo — larger */
 .logo {
@@ -121,11 +128,9 @@ body {
 .logo.nav-is-open { color: var(--black); }
 
 /* ============================================================
-   HEADER MARQUEE — ~30% width, fade edges
+   HEADER MARQUEE — 30% width, true centre (grid middle column)
    ============================================================ */
 .header-marquee {
-  /* Constrained to ~30% of page, centred between logo and menu */
-  flex: 0 0 auto;
   width: 30%;
   max-width: 48rem;
   overflow: hidden;
@@ -186,7 +191,7 @@ body {
   border: none;
   color: var(--white);
   transition: color 0.3s ease;
-  flex-shrink: 0;
+  justify-self: end; /* grid: always flush right */
 }
 .nav-toggle.nav-is-open { color: var(--black); }
 
@@ -534,21 +539,25 @@ body {
 .work-caption span { font-size: 1.2rem; color: #888; letter-spacing: 0.04em; }
 
 /* ============================================================
-   SERVICES — shed.design layout
-   Blue bg, pill label, massive uppercase names, sticky image
+   SERVICES — full viewport height, responsive scaling
    ============================================================ */
 .services {
   background: var(--blue-deep);
-  padding: 8rem 0 0;
+  /* Fill exactly one screen — no more, no less */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 0 0;
 }
 
 /* Header block */
 .services-header {
-  padding: 0 var(--pad) 7rem;
+  padding: 0 var(--pad) 4rem;
   max-width: 60rem;
   opacity: 0;
   transform: translateY(3rem);
   transition: opacity 0.7s ease, transform 0.7s var(--ease);
+  flex-shrink: 0;
 }
 .services-header.is-revealed { opacity: 1; transform: translateY(0); }
 
@@ -574,35 +583,45 @@ body {
   color: rgba(255,255,255,0.75);
 }
 
-/* Two-column: names left, image right */
+/* Two-column: names left, image right — fills remaining height */
 .services-layout {
   display: grid;
   grid-template-columns: 68% 32%;
-  align-items: start;
+  align-items: stretch;
+  flex: 1; /* expand to fill remaining viewport height */
 }
 
 .services-list {
   border-top: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  flex-direction: column;
 }
 
 .service-row {
   border-bottom: 1px solid rgba(255,255,255,0.15);
-  padding: 2rem var(--pad);
+  padding: 0 var(--pad);
   cursor: default;
+  /* Each row takes equal share of available height */
+  flex: 1;
+  display: flex;
+  align-items: center;
   opacity: 0;
   transform: translateY(4rem);
   transition:
     opacity 0.7s ease var(--delay, 0s),
-    transform 0.7s var(--ease) var(--delay, 0s);
+    transform 0.7s var(--ease) var(--delay, 0s),
+    background 0.25s ease;
 }
 .service-row.is-revealed { opacity: 1; transform: translateY(0); }
+.service-row:hover { background: rgba(255,255,255,0.04); }
 
-/* Massive uppercase service names */
+/* Massive uppercase service names — scale with viewport height */
 .service-name {
   font-family: var(--f-display);
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
-  font-size: clamp(6rem, 9vw, 14rem);
+  /* Scale by vw but also cap by vh so names fit inside their row */
+  font-size: clamp(5rem, min(9vw, 16vh), 16rem);
   letter-spacing: -0.03em;
   line-height: 1;
   color: #fff;
@@ -610,19 +629,18 @@ body {
 }
 .service-row:hover .service-name { color: var(--sky); }
 
-/* Sticky image panel */
+/* Sticky image panel — fills full right column height */
 .services-img-panel {
   position: sticky;
-  top: 9rem;
-  height: 52rem;
-  padding-right: var(--pad);
-  padding-bottom: 3rem;
+  top: 7rem;
+  align-self: start;
+  height: calc(100vh - 7rem);
+  padding: 2rem var(--pad) 2rem 2rem;
 }
 
 .svc-img {
   position: absolute;
-  inset: 0;
-  right: var(--pad);
+  inset: 2rem var(--pad) 2rem 2rem;
   border-radius: 0.8rem;
   opacity: 0;
   transform: scale(1.04);
@@ -703,61 +721,6 @@ body {
 }
 
 .work .section-label { color: #888; }
-
-/* ============================================================
-   CONTACT CTA
-   ============================================================ */
-.contact-cta { padding: var(--gap) var(--pad); background: var(--blue); }
-.contact-heading {
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: clamp(4.5rem, 9vw, 13rem);
-  line-height: 0.88;
-  letter-spacing: -0.04em;
-  color: var(--white);
-  margin-bottom: 6rem;
-  transform: translateY(5rem);
-  opacity: 0;
-  transition: transform 1s var(--ease), opacity 1s ease;
-}
-.contact-heading.is-revealed { transform: translateY(0); opacity: 1; }
-.contact-heading em {
-  font-family: var(--f-serif);
-  font-style: italic;
-  font-weight: 400;
-  color: var(--gold);
-}
-.contact-actions {
-  display: flex;
-  align-items: center;
-  gap: 3.5rem;
-  flex-wrap: wrap;
-  opacity: 0;
-  transition: opacity 0.7s ease 0.35s;
-}
-.contact-actions.is-revealed { opacity: 1; }
-.contact-email {
-  font-family: var(--f-display);
-  font-weight: 600;
-  font-size: clamp(1.6rem, 2vw, 2.4rem);
-  color: var(--white);
-  text-decoration: underline;
-  text-underline-offset: 0.35em;
-  transition: color 0.3s ease;
-}
-.contact-email:hover { color: var(--gold); }
-.cta-btn {
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: 1.5rem;
-  background: var(--orange);
-  color: var(--white);
-  padding: 1.4rem 3.5rem;
-  border-radius: 10rem;
-  transition: background 0.3s ease, color 0.3s ease, transform 0.3s var(--ease);
-  cursor: pointer;
-}
-.cta-btn:hover { background: var(--gold); color: var(--black); transform: scale(1.04); }
 
 /* ============================================================
    FOOTER — shed.design style: nav links + giant "SEE WORK" CTA

@@ -11,7 +11,10 @@
       "WebFetch(domain:fonts.cdnfonts.com)",
       "WebFetch(domain:www.cdnfonts.com)",
       "WebFetch(domain:api.fontshare.com)",
-      "WebFetch(domain:imgur.com)"
+      "WebFetch(domain:imgur.com)",
+      "Bash(open \"/Users/citizennorth/Desktop/CN Website/index.html\")",
+      "mcp__Claude_Preview__preview_start",
+      "WebFetch(domain:goodneighbourcollective.github.io)"
     ]
   }
 }
