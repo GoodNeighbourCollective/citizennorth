@@ -1105,6 +1105,189 @@ body {
 .project-next-link { display: block; }
 
 /* ============================================================
+   SERVICES PAGE
+   ============================================================ */
+
+/* Three-column overview */
+.svc-overview {
+  background: #fff;
+  padding: var(--gap) var(--pad);
+}
+.svc-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+.svc-col {
+  padding: 4rem 4rem 4rem 0;
+  border-right: 1px solid rgba(0,0,0,0.1);
+}
+.svc-col:last-child { border-right: none; padding-right: 0; }
+.svc-col:not(:first-child) { padding-left: 4rem; }
+
+.svc-num {
+  display: block;
+  font-family: var(--f-body);
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 3rem;
+}
+.svc-col-title {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 2vw, 2.6rem);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: #1a1a1a;
+  margin-bottom: 2.5rem;
+}
+.svc-col-body {
+  font-size: 1.55rem;
+  line-height: 1.7;
+  color: #555;
+}
+.svc-col-list {
+  display: flex;
+  flex-direction: column;
+}
+.svc-col-list li {
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 1.6vw, 2rem);
+  letter-spacing: -0.01em;
+  color: #1a1a1a;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  transition: color 0.2s ease, padding-left 0.3s ease;
+}
+.svc-col-list li:first-child { border-top: 1px solid rgba(0,0,0,0.08); }
+.svc-col-list li:hover { color: var(--gold); padding-left: 0.6rem; }
+
+/* Approach section */
+.svc-approach {
+  background: #f5f3ef;
+  padding: var(--gap) var(--pad);
+}
+.svc-approach-inner {
+  display: grid;
+  grid-template-columns: 28rem 1fr;
+  gap: 6rem;
+  align-items: start;
+}
+.svc-approach-left { padding-top: 0.5rem; }
+.svc-approach-heading {
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: clamp(4rem, 6.5vw, 10rem);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: #1a1a1a;
+  margin-bottom: 4rem;
+}
+.svc-approach-heading em {
+  font-family: var(--f-serif);
+  font-style: italic;
+  color: var(--gold);
+}
+.svc-approach-body {
+  font-size: 1.75rem;
+  line-height: 1.65;
+  color: #444;
+  max-width: 68rem;
+  margin-bottom: 6rem;
+}
+.svc-pillars {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem 5rem;
+  border-top: 1px solid rgba(0,0,0,0.12);
+  padding-top: 4rem;
+}
+.svc-pillar-title {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 1.7rem;
+  letter-spacing: -0.01em;
+  color: #1a1a1a;
+  margin-bottom: 0.8rem;
+}
+.svc-pillar-body {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: #666;
+}
+
+/* Testimonial */
+.svc-testimonial {
+  background: var(--blue-deep);
+  padding: var(--gap) var(--pad);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 3rem;
+}
+.svc-testimonial-quote {
+  font-family: var(--f-serif);
+  font-style: italic;
+  font-size: clamp(2.8rem, 4.5vw, 6.5rem);
+  line-height: 1.2;
+  color: #fff;
+  max-width: 100rem;
+}
+.svc-testimonial-cite {
+  font-family: var(--f-body);
+  font-size: 1.3rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+
+/* Work CTA band */
+.svc-work-cta {
+  background: #fff;
+  padding: 8rem var(--pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  gap: 4rem;
+}
+.svc-work-cta-label {
+  font-size: 1.3rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 1.5rem;
+}
+.svc-work-cta-heading {
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: clamp(4rem, 7vw, 10rem);
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+  color: #1a1a1a;
+}
+.svc-work-cta-heading em {
+  font-family: var(--f-serif);
+  font-style: italic;
+  color: var(--gold);
+}
+.pill-btn--dark {
+  background: #1a1a1a;
+  color: #fff;
+  border-color: #1a1a1a;
+  white-space: nowrap;
+}
+.pill-btn--dark:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+}
+
+/* ============================================================
    SHARED UTILITIES
    ============================================================ */
 .img-placeholder { display: block; width: 100%; height: 100%; min-height: 30rem; }
@@ -1152,6 +1335,15 @@ body {
   .project-img-duo { grid-template-columns: 1fr; }
   .project-text-section { grid-template-columns: 1fr; gap: 2rem; }
   .project-meta { flex-wrap: wrap; gap: 3rem; }
+
+  /* Services page */
+  .svc-overview-grid { grid-template-columns: 1fr; }
+  .svc-col { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.1); padding: 4rem 0; }
+  .svc-col:last-child { border-bottom: none; }
+  .svc-col:not(:first-child) { padding-left: 0; }
+  .svc-approach-inner { grid-template-columns: 1fr; gap: 4rem; }
+  .svc-pillars { grid-template-columns: 1fr; }
+  .svc-work-cta { flex-direction: column; align-items: flex-start; }
 }
 @media (max-width: 600px) {
   .work-grid { grid-template-columns: 1fr; }
@@ -1162,6 +1354,7 @@ body {
   .clients-col li { font-size: clamp(1.8rem, 4vw, 3rem); }
   .clients-divider { margin: 0 3rem; }
   .project-next { flex-direction: column; align-items: flex-start; }
+  .svc-pillars { grid-template-columns: 1fr; gap: 2.5rem; }
 }
 
 /* ============================================================
