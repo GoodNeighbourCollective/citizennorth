@@ -125,13 +125,13 @@ body {
 .logo.nav-is-open { color: var(--black); }
 
 /* ============================================================
-   HEADER MARQUEE — absolutely centred, 70% wide
+   HEADER MARQUEE — absolutely centred, 20vw wide
    ============================================================ */
 .header-marquee {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 20%;
+  width: 20vw;
   overflow: hidden;
   -webkit-mask-image: linear-gradient(
     to right,
