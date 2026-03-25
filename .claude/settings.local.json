@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/citizennorth/**)",
+      "Read(//Users/citizennorth/Desktop/**)",
+      "Bash(gh auth:*)",
+      "Bash(gh repo:*)",
+      "Bash(gh api:*)",
+      "WebFetch(domain:shed.design)",
+      "WebFetch(domain:www.citizennorth.co)"
+    ]
+  }
+}
