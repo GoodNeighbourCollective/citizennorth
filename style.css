@@ -1187,106 +1187,125 @@ body {
    SERVICES PAGE
    ============================================================ */
 
-/* ① Giant heading hero — white background */
-.svc-page-hero {
-  background: #fff;
-  padding: 14rem var(--pad) 6rem;
-}
-.svc-page-title {
-  font-family: var(--f-display);
-  font-weight: 800;
-  font-size: clamp(8rem, 14vw, 22rem);
-  letter-spacing: -0.04em;
-  line-height: 0.88;
-  color: #1a1a1a;
-  text-transform: uppercase;
-}
-
-/* ② Image mosaic */
-.svc-mosaic {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr 1.8fr 1fr 1.2fr;
-  grid-template-rows: 40rem;
-  gap: 0.6rem;
-  background: #fff;
-  padding: 0 var(--pad) 0;
-}
-.svc-mosaic-item {
-  border-radius: 0.4rem;
+/* ① Full-screen hero image */
+.svc-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 var(--pad) 4rem;
   overflow: hidden;
 }
-.svc-mosaic-item--tall { grid-row: span 1; align-self: stretch; }
+.svc-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.svc-hero-content {
+  position: relative;
+  z-index: 2;
+}
+.svc-hero-title {
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: clamp(7rem, 14vw, 22rem);
+  letter-spacing: -0.04em;
+  line-height: 0.88;
+  color: #fff;
+}
+/* reuse split-word animation from homepage */
 
-/* ③ Large intro statement */
+/* ② Large intro statement */
 .svc-statement {
   background: #fff;
-  padding: 10rem var(--pad) 10rem;
+  padding: 10rem var(--pad);
   border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 .svc-statement-text {
   font-family: var(--f-display);
   font-weight: 700;
-  font-size: clamp(2.8rem, 4vw, 6rem);
+  font-size: clamp(2.6rem, 3.8vw, 5.5rem);
   letter-spacing: -0.03em;
-  line-height: 1.15;
+  line-height: 1.18;
   color: #1a1a1a;
   max-width: 120rem;
 }
 
-/* ④ Three-column overview */
+/* ③ Three-column section */
 .svc-overview {
   background: #fff;
-  padding: var(--gap) var(--pad);
+  padding: 0 var(--pad) var(--gap);
 }
 .svc-overview-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid rgba(0,0,0,0.1);
+  min-height: 80vh;
 }
 .svc-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 4rem 4rem 4rem 0;
   border-right: 1px solid rgba(0,0,0,0.1);
 }
 .svc-col:last-child { border-right: none; padding-right: 0; }
 .svc-col:not(:first-child) { padding-left: 4rem; }
-.svc-num {
-  display: block;
+
+/* Filled pill — solid brand colour */
+.svc-pill {
+  display: inline-flex;
+  align-items: center;
+  background: var(--blue-deep);
+  color: #fff;
+  border-radius: 10rem;
+  padding: 0.55rem 1.5rem;
   font-family: var(--f-body);
   font-size: 1.05rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #999;
   margin-bottom: 2.5rem;
+  white-space: nowrap;
 }
-.svc-col-title {
-  font-family: var(--f-display);
-  font-weight: 700;
-  font-size: clamp(1.8rem, 2vw, 2.6rem);
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  color: #1a1a1a;
-  margin-bottom: 2.5rem;
-}
+
 .svc-col-body {
+  font-family: var(--f-body);
   font-size: 1.55rem;
   line-height: 1.7;
   color: #555;
+  max-width: 38rem;
 }
-.svc-col-list { display: flex; flex-direction: column; }
-.svc-col-list li {
-  font-family: var(--f-display);
-  font-weight: 600;
-  font-size: clamp(1.5rem, 1.6vw, 2rem);
-  letter-spacing: -0.01em;
-  color: #1a1a1a;
-  padding: 1.4rem 0;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-  transition: color 0.2s ease, padding-left 0.3s ease;
-}
-.svc-col-list li:first-child { border-top: 1px solid rgba(0,0,0,0.08); }
-.svc-col-list li:hover { color: var(--gold); padding-left: 0.6rem; }
 
-/* ⑤ Why Citizen North — blue background */
+/* Large bold bottom content — same font throughout */
+.svc-col-statement {
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: clamp(2.8rem, 3.2vw, 5rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--blue-deep);
+}
+
+.svc-big-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.svc-big-list li {
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: clamp(2.4rem, 2.8vw, 4.5rem);
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  color: var(--blue-deep);
+  transition: opacity 0.2s ease;
+}
+.svc-big-list li:hover { opacity: 0.55; }
+
+/* ④ Why Citizen North — blue background */
 .svc-why {
   background: var(--blue-deep);
   padding: var(--gap) var(--pad);
@@ -1319,6 +1338,7 @@ body {
   margin-bottom: 3rem;
 }
 .svc-why-sub {
+  font-family: var(--f-body);
   font-size: 1.6rem;
   color: rgba(255,255,255,0.55);
   max-width: 50rem;
@@ -1333,7 +1353,7 @@ body {
   max-width: 110rem;
 }
 
-/* ⑥ Large centred quote */
+/* ⑤ Large centred quote */
 .svc-quote-section {
   background: #fff;
   padding: var(--gap) var(--pad);
@@ -1362,14 +1382,13 @@ body {
   color: #999;
 }
 
-/* ⑦ Work image strip */
+/* ⑥ Work image strip */
 .svc-work-strip {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.6rem;
-  padding: 0 var(--pad);
+  padding: 0 var(--pad) var(--gap);
   background: #fff;
-  padding-bottom: var(--gap);
 }
 .svc-strip-item {
   aspect-ratio: 4/3;
@@ -1426,11 +1445,8 @@ body {
   .project-meta { flex-wrap: wrap; gap: 3rem; }
 
   /* Services page */
-  .svc-mosaic { grid-template-columns: repeat(3, 1fr); grid-template-rows: 28rem; }
-  .svc-mosaic-item:nth-child(4),
-  .svc-mosaic-item:nth-child(5) { display: none; }
-  .svc-overview-grid { grid-template-columns: 1fr; }
-  .svc-col { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.1); padding: 4rem 0; }
+  .svc-overview-grid { grid-template-columns: 1fr; min-height: unset; }
+  .svc-col { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.1); padding: 5rem 0; min-height: unset; }
   .svc-col:last-child { border-bottom: none; }
   .svc-col:not(:first-child) { padding-left: 0; }
   .svc-work-strip { grid-template-columns: repeat(2, 1fr); }
@@ -1444,11 +1460,7 @@ body {
   .clients-col li { font-size: clamp(1.8rem, 4vw, 3rem); }
   .clients-divider { margin: 0 3rem; }
   .project-next { flex-direction: column; align-items: flex-start; }
-  .svc-mosaic { grid-template-columns: repeat(2, 1fr); }
-  .svc-mosaic-item:nth-child(3),
-  .svc-mosaic-item:nth-child(4),
-  .svc-mosaic-item:nth-child(5) { display: none; }
-  .svc-work-strip { grid-template-columns: 1fr; }
+  .svc-work-strip { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ============================================================
