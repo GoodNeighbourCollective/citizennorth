@@ -10,7 +10,8 @@
       "WebFetch(domain:www.citizennorth.co)",
       "WebFetch(domain:fonts.cdnfonts.com)",
       "WebFetch(domain:www.cdnfonts.com)",
-      "WebFetch(domain:api.fontshare.com)"
+      "WebFetch(domain:api.fontshare.com)",
+      "WebFetch(domain:imgur.com)"
     ]
   }
 }

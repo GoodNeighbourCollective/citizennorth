@@ -142,7 +142,7 @@ body {
 .nav-toggle-plus {
   font-family: var(--f-display);
   font-weight: 400;
-  font-size: 1.8rem;
+  font-size: 2.6rem;
   line-height: 1;
   display: inline-block;
   transition: transform 0.45s var(--ease);
@@ -155,8 +155,8 @@ body {
 .nav-toggle-label {
   font-family: var(--f-display);
   font-weight: 700;
-  font-size: 1.4rem;
-  letter-spacing: 0.08em;
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   line-height: 1;
 }
@@ -269,7 +269,19 @@ body {
   background: var(--black);
 }
 
-.hero-content { padding-bottom: 3rem; }
+/* Hero background image */
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  filter: brightness(0.5);
+}
+
+.hero-content { padding-bottom: 3rem; position: relative; z-index: 1; }
 
 .hero-heading {
   font-family: var(--f-display);
@@ -311,6 +323,7 @@ body {
   flex-direction: column;
   align-items: flex-end;
   gap: 1.5rem;
+  z-index: 1;
 }
 
 .hero-location {
@@ -400,9 +413,12 @@ body {
 .link-arrow:hover { gap: 1.4rem; }
 
 /* ============================================================
-   WORK (homepage section)
+   WORK (homepage section) — white background
    ============================================================ */
-.work { padding: var(--gap) var(--pad); }
+.work {
+  padding: var(--gap) var(--pad);
+  background: #fff;
+}
 
 .work-header {
   display: flex;
@@ -420,23 +436,23 @@ body {
   font-size: 1.1rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--gray);
+  color: #888;
 }
 
 .pill-btn {
   font-family: var(--f-display);
   font-weight: 600;
   font-size: 1.25rem;
-  border: 1px solid rgba(235,235,235,0.25);
+  border: 1px solid rgba(0,0,0,0.2);
   padding: 0.8rem 2.2rem;
   border-radius: 10rem;
-  color: var(--white);
+  color: #1a1a1a;
   transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 .pill-btn:hover {
-  background: var(--white);
-  color: var(--black);
-  border-color: var(--white);
+  background: #1a1a1a;
+  color: #fff;
+  border-color: #1a1a1a;
 }
 
 .work-grid {
@@ -502,12 +518,12 @@ body {
   font-family: var(--f-display);
   font-weight: 600;
   font-size: 1.8rem;
-  color: var(--white);
+  color: #1a1a1a;
   margin-bottom: 0.4rem;
 }
 .work-caption span {
   font-size: 1.2rem;
-  color: var(--gray);
+  color: #888;
   letter-spacing: 0.04em;
 }
 
@@ -629,9 +645,13 @@ body {
 }
 
 /* ============================================================
-   CLIENTS
+   CLIENTS — white background
    ============================================================ */
-.clients { padding: var(--gap) 0; overflow: hidden; }
+.clients {
+  padding: var(--gap) 0;
+  overflow: hidden;
+  background: #fff;
+}
 
 .clients-label {
   padding: 0 var(--pad);
@@ -642,10 +662,14 @@ body {
 }
 .clients-label.is-revealed { opacity: 1; transform: translateY(0); }
 
+/* Override section-label colour inside white sections */
+.work .section-label,
+.clients .section-label { color: #888; }
+
 .clients-marquee {
   overflow: hidden;
-  border-top: 1px solid rgba(235,235,235,0.08);
-  border-bottom: 1px solid rgba(235,235,235,0.08);
+  border-top: 1px solid rgba(0,0,0,0.08);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
   padding: 3rem 0;
 }
 
@@ -661,12 +685,12 @@ body {
   font-family: var(--f-display);
   font-weight: 600;
   font-size: clamp(1.8rem, 2vw, 2.6rem);
-  color: var(--gray);
+  color: #aaa;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   transition: color 0.3s ease;
 }
-.clients-track span:hover { color: var(--white); cursor: default; }
+.clients-track span:hover { color: #1a1a1a; cursor: default; }
 
 @keyframes scrollLeft {
   from { transform: translateX(0); }
