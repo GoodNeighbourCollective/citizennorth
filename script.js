@@ -9,24 +9,17 @@
   const qsa = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
   /* ──────────────────────────────────────────────────────────
-     CUSTOM CURSOR — only activates on project image hover
+     CUSTOM CURSOR — only on project image hover
   ────────────────────────────────────────────────────────── */
   const cursor = qs('#cursor');
 
   if (cursor && window.matchMedia('(pointer: fine)').matches) {
-    let cx = 0, cy = 0;
-
-    // Track mouse at all times so cursor is in position before it appears
     document.addEventListener('mousemove', (e) => {
-      cx = e.clientX;
-      cy = e.clientY;
-      cursor.style.left = cx + 'px';
-      cursor.style.top  = cy + 'px';
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top  = e.clientY + 'px';
     }, { passive: true });
 
-    // Only show cursor circle when hovering project thumbs
-    const thumbs = qsa('.work-thumb, .work-page-thumb');
-    thumbs.forEach(el => {
+    qsa('.work-thumb, .work-page-thumb').forEach(el => {
       el.addEventListener('mouseenter', () => cursor.classList.add('is-active'));
       el.addEventListener('mouseleave', () => cursor.classList.remove('is-active'));
     });
@@ -62,26 +55,18 @@
   }
 
   navToggle.addEventListener('click', () => navOpen ? closeNav() : openNav());
-
   qsa('[data-close-nav]').forEach(link => link.addEventListener('click', closeNav));
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && navOpen) closeNav();
-  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && navOpen) closeNav(); });
 
   /* ──────────────────────────────────────────────────────────
-     HEADER: AUTO-HIDE ON SCROLL DOWN
+     HEADER AUTO-HIDE
   ────────────────────────────────────────────────────────── */
   let lastScrollY = 0, ticking = false;
 
   function handleScroll() {
     const y = window.scrollY;
     if (header) {
-      if (y > lastScrollY && y > 120) {
-        header.classList.add('is-hidden');
-      } else {
-        header.classList.remove('is-hidden');
-      }
+      header.classList.toggle('is-hidden', y > lastScrollY && y > 120);
     }
     lastScrollY = y;
     ticking = false;
@@ -92,7 +77,7 @@
   }, { passive: true });
 
   /* ──────────────────────────────────────────────────────────
-     HERO ENTRANCE (homepage)
+     HERO ENTRANCE
   ────────────────────────────────────────────────────────── */
   window.addEventListener('load', () => {
     qsa('.split-word').forEach((word, i) => {
@@ -101,7 +86,6 @@
     const heroSub = qs('.hero-sub p');
     if (heroSub) setTimeout(() => heroSub.classList.add('is-revealed'), 750);
 
-    // Project page hero
     const projectTitle   = qs('.project-title');
     const projectTagline = qs('.project-tagline');
     if (projectTitle)   setTimeout(() => projectTitle.classList.add('is-revealed'), 200);
@@ -117,27 +101,51 @@
     '.js-reveal-up',
     '.work-header',
     '.clients-label',
-    '.services-heading-wrap',
+    '.services-top',
     '.contact-heading',
     '.contact-actions',
     '.project-meta',
     '.work-page-item',
-    '.service-item',
+    '.service-row',
     '.work-item',
   ];
 
-  const observer = new IntersectionObserver((entries) => {
+  const revealObs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-revealed');
-        observer.unobserve(entry.target);
+        revealObs.unobserve(entry.target);
       }
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-  revealSelectors.forEach(sel => {
-    qsa(sel).forEach(el => observer.observe(el));
-  });
+  revealSelectors.forEach(sel => qsa(sel).forEach(el => revealObs.observe(el)));
+
+  /* ──────────────────────────────────────────────────────────
+     SERVICES — sticky image switcher
+     Hover a service row → matching image fades in
+  ────────────────────────────────────────────────────────── */
+  const serviceRows = qsa('.service-row');
+  const svcImgs     = qsa('.svc-img');
+
+  if (serviceRows.length && svcImgs.length) {
+    function activateSvc(index) {
+      svcImgs.forEach((img, i) => {
+        img.classList.toggle('is-active', i === index);
+      });
+    }
+
+    serviceRows.forEach((row) => {
+      const idx = parseInt(row.dataset.svc, 10);
+      row.addEventListener('mouseenter', () => activateSvc(idx));
+    });
+
+    // Reset to first image when mouse leaves the whole services section
+    const servicesSection = qs('#services');
+    if (servicesSection) {
+      servicesSection.addEventListener('mouseleave', () => activateSvc(0));
+    }
+  }
 
   /* ──────────────────────────────────────────────────────────
      SMOOTH ANCHOR SCROLL
@@ -149,7 +157,10 @@
       const target = document.getElementById(id);
       if (!target) return;
       e.preventDefault();
-      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+      window.scrollTo({
+        top: target.getBoundingClientRect().top + window.scrollY - 80,
+        behavior: 'smooth'
+      });
     });
   });
 

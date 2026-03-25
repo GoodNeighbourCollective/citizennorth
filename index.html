@@ -3,11 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Citizen North — Production Company</title>
-  <meta name="description" content="Citizen North is a full-service production company specializing in editorial and branded campaigns, luxury hotel photography and videography.">
+  <title>Citizen North — Luxury Hospitality Photography & Film</title>
+  <meta name="description" content="Citizen North creates elevated visual content for luxury hospitality brands worldwide — photography, videography, and branded campaigns.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Cormorant+Garamond:ital,wght@0,400;1,400;1,600&display=swap" rel="stylesheet">
+  <!--
+    FONT NOTE: This site is configured to use:
+      - Neue Montreal (display / body)  — download free from pangram-pangram.com
+      - Editorial New (serif accent)    — download from pangram-pangram.com
+    Place font files in /fonts/ and the @font-face in fonts.css will activate them.
+    Google Fonts below are fallbacks until then.
+  -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Cormorant+Garamond:ital,wght@0,400;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,8 +30,7 @@
     <div class="header-inner">
       <a href="/" class="logo" id="logo">Citizen North</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
+        <span class="nav-toggle-icon"></span>
       </button>
     </div>
   </header>
@@ -33,7 +40,7 @@
     <div class="nav-overlay-inner">
       <ul class="nav-list">
         <li class="nav-item">
-          <a href="#work" class="nav-link" data-close-nav>Select Work</a>
+          <a href="work.html" class="nav-link" data-close-nav>Select Work</a>
         </li>
         <li class="nav-item">
           <a href="#services" class="nav-link" data-close-nav>Services</a>
@@ -46,7 +53,7 @@
         </li>
       </ul>
       <div class="nav-footer">
-        <span>Quebec, Canada</span>
+        <span>Available worldwide</span>
         <div class="nav-socials">
           <a href="https://instagram.com/therollingvan" target="_blank" rel="noopener">Instagram</a>
           <a href="https://facebook.com/TheRollingVan" target="_blank" rel="noopener">Facebook</a>
@@ -63,11 +70,11 @@
         <span class="split-line"><span class="split-word">North</span></span>
       </h1>
       <div class="hero-sub">
-        <p>Full-service production for<br>those who demand more.</p>
+        <p>Visual storytelling for<br>those who demand more.</p>
       </div>
     </div>
     <div class="hero-meta">
-      <span class="hero-location">Quebec, Canada</span>
+      <span class="hero-location">Available for projects worldwide.</span>
       <div class="hero-scroll">
         <span>Scroll</span>
         <div class="scroll-line"></div>
@@ -79,10 +86,10 @@
   <section class="intro">
     <div class="intro-inner">
       <p class="intro-text js-reveal">
-        We're a full-service production company that loves editorial and branded campaigns.
+        For over a decade, we have collaborated with luxury hospitality brands to craft elevated guest experiences through design. We are an agile, internationally experienced team driven by nuance, restraint, and a deep understanding of atmosphere. We do not impose a house style. Every project is tailored, expressive, and rooted in the identity of the property.
       </p>
       <div class="intro-aside js-reveal-fade">
-        <p>Based in Quebec, Canada</p>
+        <p>Available for projects worldwide.</p>
         <a href="#contact" class="link-arrow">Start a project <span>→</span></a>
       </div>
     </div>
@@ -145,35 +152,59 @@
 
   <!-- Services -->
   <section class="services" id="services">
-    <div class="services-inner">
-      <div class="services-heading-wrap js-reveal-fade">
-        <span class="section-label">What We Do</span>
-        <h2 class="services-heading">
-          Craft that<br><em>speaks</em> for itself.
-        </h2>
-      </div>
+    <div class="services-top js-reveal-fade">
+      <span class="section-label">Core services and sectors</span>
+      <p class="services-intro">
+        Focused on hospitality and tourism, we provide full end-to-end production, guiding each project from concept and creative direction to final imagery and video. Our work captures the essence of each destination and property with precision and care.
+      </p>
+    </div>
+
+    <div class="services-layout">
       <ul class="services-list">
-        <li class="service-item js-reveal-up" style="--delay: 0s">
-          <span class="service-num">01</span>
-          <h3>Luxury Hotel Photography</h3>
-          <p>Capturing the soul of exceptional hospitality — from intimate details to grand architectural gestures.</p>
+        <li class="service-row js-reveal-up" data-svc="0" style="--delay:0s">
+          <div class="service-row-inner">
+            <span class="service-num">01</span>
+            <div class="service-row-text">
+              <h3 class="service-name">Architectural</h3>
+              <p class="service-desc">Grand spaces and intimate corners — the full character of a property, rendered in light.</p>
+            </div>
+          </div>
         </li>
-        <li class="service-item js-reveal-up" style="--delay: 0.1s">
-          <span class="service-num">02</span>
-          <h3>Hotel Videography</h3>
-          <p>Cinematic storytelling that brings your property to life and converts viewers into guests.</p>
+        <li class="service-row js-reveal-up" data-svc="1" style="--delay:0.05s">
+          <div class="service-row-inner">
+            <span class="service-num">02</span>
+            <div class="service-row-text">
+              <h3 class="service-name">Lifestyle</h3>
+              <p class="service-desc">Authentic moments and aspirational living — imagery that places the guest inside the experience.</p>
+            </div>
+          </div>
         </li>
-        <li class="service-item js-reveal-up" style="--delay: 0.2s">
-          <span class="service-num">03</span>
-          <h3>Editorial Campaigns</h3>
-          <p>Magazine-quality editorial content built for brands that want to be remembered.</p>
+        <li class="service-row js-reveal-up" data-svc="2" style="--delay:0.1s">
+          <div class="service-row-inner">
+            <span class="service-num">03</span>
+            <div class="service-row-text">
+              <h3 class="service-name">Videography</h3>
+              <p class="service-desc">Cinematic films and social-first content crafted to move people — from brand films to digital campaigns.</p>
+            </div>
+          </div>
         </li>
-        <li class="service-item js-reveal-up" style="--delay: 0.3s">
-          <span class="service-num">04</span>
-          <h3>Branded Content</h3>
-          <p>Full-service production for campaigns that demand creative vision and flawless execution.</p>
+        <li class="service-row js-reveal-up" data-svc="3" style="--delay:0.15s">
+          <div class="service-row-inner">
+            <span class="service-num">04</span>
+            <div class="service-row-text">
+              <h3 class="service-name">Commercial</h3>
+              <p class="service-desc">Campaign-level production for brands that demand creative precision and flawless execution.</p>
+            </div>
+          </div>
         </li>
       </ul>
+
+      <div class="services-img-panel">
+        <div class="svc-img svc-img--0 grad-1 is-active"></div>
+        <div class="svc-img svc-img--1 grad-3"></div>
+        <div class="svc-img svc-img--2 grad-5"></div>
+        <div class="svc-img svc-img--3 grad-2"></div>
+      </div>
     </div>
   </section>
 
@@ -194,7 +225,6 @@
         <span>AZUR Collection</span>
         <span>Airbnb</span>
         <span>Condé Nast</span>
-        <!-- duplicate for seamless loop -->
         <span>Fairmont Hotels</span>
         <span>Club Med</span>
         <span>Tourism Quebec</span>
@@ -230,9 +260,9 @@
         <nav class="footer-nav">
           <div class="footer-col">
             <span class="footer-col-title">Work</span>
-            <a href="#work">Select Projects</a>
-            <a href="#work">Hotel Photography</a>
-            <a href="#work">Hotel Videography</a>
+            <a href="work.html">Select Projects</a>
+            <a href="work.html">Hotel Photography</a>
+            <a href="work.html">Hotel Videography</a>
           </div>
           <div class="footer-col">
             <span class="footer-col-title">Company</span>

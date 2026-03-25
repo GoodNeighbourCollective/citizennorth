@@ -1,0 +1,85 @@
+/*
+  ============================================================
+  CITIZEN NORTH — Custom Font Declarations
+  ============================================================
+
+  To activate Neue Montreal and Editorial New:
+
+  1. Download Neue Montreal (free) from:
+     https://pangram-pangram.com/pages/neue-montreal
+
+  2. Download Editorial New from:
+     https://pangram-pangram.com/pages/editorial-new
+
+  3. Place the .woff2 and .woff files inside a /fonts/ folder
+     in this project root:
+
+       /fonts/NeueMontreal-Regular.woff2
+       /fonts/NeueMontreal-Medium.woff2
+       /fonts/NeueMontreal-Bold.woff2
+       /fonts/EditorialNew-Regular.woff2
+       /fonts/EditorialNew-Italic.woff2
+       /fonts/EditorialNew-UltralightItalic.woff2
+
+  4. Uncomment the @font-face blocks below.
+
+  Until then, Plus Jakarta Sans (Google Fonts) and
+  Cormorant Garamond serve as accurate stand-ins.
+  ============================================================
+*/
+
+/*
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('fonts/NeueMontreal-Regular.woff2') format('woff2'),
+       url('fonts/NeueMontreal-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('fonts/NeueMontreal-Medium.woff2') format('woff2'),
+       url('fonts/NeueMontreal-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('fonts/NeueMontreal-Bold.woff2') format('woff2'),
+       url('fonts/NeueMontreal-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Editorial New';
+  src: url('fonts/EditorialNew-Regular.woff2') format('woff2'),
+       url('fonts/EditorialNew-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Editorial New';
+  src: url('fonts/EditorialNew-Italic.woff2') format('woff2'),
+       url('fonts/EditorialNew-Italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Editorial New';
+  src: url('fonts/EditorialNew-UltralightItalic.woff2') format('woff2'),
+       url('fonts/EditorialNew-UltralightItalic.woff') format('woff');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+*/

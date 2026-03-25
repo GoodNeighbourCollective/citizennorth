@@ -7,7 +7,10 @@
       "Bash(gh repo:*)",
       "Bash(gh api:*)",
       "WebFetch(domain:shed.design)",
-      "WebFetch(domain:www.citizennorth.co)"
+      "WebFetch(domain:www.citizennorth.co)",
+      "WebFetch(domain:fonts.cdnfonts.com)",
+      "WebFetch(domain:www.cdnfonts.com)",
+      "WebFetch(domain:api.fontshare.com)"
     ]
   }
 }
