@@ -951,32 +951,95 @@ body {
    WORK PAGE
    ============================================================ */
 .page-hero {
-  padding: 16rem var(--pad) 6rem;
+  padding: 16rem var(--pad) 5rem;
   background: var(--black);
 }
 .page-hero-label {
   font-size: 1.1rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--gray);
+  color: rgba(255,255,255,0.45);
   display: block;
   margin-bottom: 2rem;
 }
 .page-hero-heading {
   font-family: var(--f-display);
-  font-weight: 700;
+  font-weight: 800;
   font-size: clamp(5rem, 10vw, 14rem);
   line-height: 0.9;
   letter-spacing: -0.04em;
   color: var(--white);
 }
+.page-hero-sub {
+  font-family: var(--f-body);
+  font-size: clamp(1.4rem, 1.5vw, 1.7rem);
+  line-height: 1.7;
+  color: rgba(255,255,255,0.45);
+  max-width: 52rem;
+  margin-top: 3rem;
+}
+
+/* ── Filter bar ── */
+.work-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 2.5rem var(--pad);
+  background: #fff;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  flex-wrap: wrap;
+}
+.work-filter {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.7rem 2rem;
+  border-radius: 10rem;
+  border: 1.5px solid rgba(0,0,0,0.16);
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 1.3rem;
+  letter-spacing: 0.03em;
+  background: transparent;
+  color: #666;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.work-filter:hover {
+  border-color: var(--black);
+  color: var(--black);
+}
+.work-filter.is-active {
+  background: var(--black);
+  border-color: var(--black);
+  color: #fff;
+}
+.work-filter-count {
+  margin-left: auto;
+  font-family: var(--f-body);
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #bbb;
+}
+
+/* ── Work grid ── */
 .work-page-grid {
   padding: 4rem var(--pad) var(--gap);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 3rem 2rem;
+  gap: 4rem 2.5rem;
   background: #fff;
 }
+
+/* Full-width featured items */
+.work-page-item--full { grid-column: 1 / -1; }
+
+/* Wide thumb for full-width items */
+.work-page-thumb--wide { aspect-ratio: 16/7; }
+
+/* Filter hide — instant, clean */
+.work-page-item.is-hidden { display: none; }
+
 .work-page-item {
   opacity: 0;
   transform: translateY(4rem);
@@ -987,26 +1050,46 @@ body {
   display: block;
   border-radius: 0.6rem;
   overflow: hidden;
-  aspect-ratio: 16/10;
+  aspect-ratio: 4/3;
   position: relative;
   cursor: none;
 }
 .work-page-info {
-  padding: 1.8rem 0 0;
+  padding: 2rem 0 0;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-end;
+  gap: 2rem;
 }
+.work-page-info-left { flex: 1; }
 .work-page-info h2 {
   font-family: var(--f-display);
   font-weight: 700;
-  font-size: clamp(2rem, 2.5vw, 3rem);
+  font-size: clamp(1.8rem, 2.2vw, 2.8rem);
   letter-spacing: -0.02em;
   color: #1a1a1a;
   margin-bottom: 0.5rem;
 }
-.work-page-info .tag { font-size: 1.2rem; color: #888; letter-spacing: 0.04em; }
-.work-page-meta .year { font-size: 1.2rem; color: #888; }
+.work-page-info .tag {
+  font-size: 1.2rem;
+  color: #888;
+  letter-spacing: 0.04em;
+}
+.work-page-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3rem;
+  flex-shrink: 0;
+}
+.work-page-cat {
+  font-size: 1.1rem;
+  color: #bbb;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.work-page-meta .year { font-size: 1.2rem; color: #aaa; }
 
 /* ============================================================
    PROJECT PAGE

@@ -78,99 +78,121 @@
   <div class="page-hero">
     <span class="page-hero-label">Selected Work</span>
     <h1 class="page-hero-heading split-line">
-      <span class="split-word">Our</span>
-      <span class="split-word">Projects</span>
+      <span class="split-word">The</span>
+      <span class="split-word">Work</span>
     </h1>
+    <p class="page-hero-sub">Select projects from our portfolio of luxury hospitality photography, videography and branded campaigns — delivered over more than a decade.</p>
+  </div>
+
+  <!-- Filter Bar -->
+  <div class="work-filter-bar">
+    <button class="work-filter is-active" data-filter="all">All</button>
+    <button class="work-filter" data-filter="architectural">Architectural</button>
+    <button class="work-filter" data-filter="lifestyle">Lifestyle</button>
+    <button class="work-filter" data-filter="commercial">Commercial</button>
+    <span class="work-filter-count" id="filterCount">6 projects</span>
   </div>
 
   <!-- Work Grid -->
-  <div class="work-page-grid">
+  <div class="work-page-grid" id="workGrid">
 
-    <article class="work-page-item js-reveal-up" style="--delay: 0s">
-      <a href="work/club-med-charlevoix.html" class="work-page-thumb grad-1">
+    <!-- 1 — FULL WIDTH: Club Med Charlevoix -->
+    <article class="work-page-item work-page-item--full js-reveal-up" style="--delay:0s" data-category="architectural lifestyle">
+      <a href="work/club-med-charlevoix.html" class="work-page-thumb work-page-thumb--wide grad-1">
         <div class="work-hover"><span>View Project</span></div>
       </a>
       <div class="work-page-info">
-        <div>
+        <div class="work-page-info-left">
           <h2>Club Med Charlevoix</h2>
-          <span class="tag">Hotel Photography & Videography</span>
+          <span class="tag">Hotel Photography &amp; Videography</span>
         </div>
         <div class="work-page-meta">
+          <span class="work-page-cat">Architectural · Lifestyle</span>
           <span class="year">2024</span>
         </div>
       </div>
     </article>
 
-    <article class="work-page-item js-reveal-up" style="--delay: 0.1s">
+    <!-- 2 — HALF: Fairmont Hotels -->
+    <article class="work-page-item js-reveal-up" style="--delay:0.05s" data-category="architectural">
       <a href="#" class="work-page-thumb grad-2">
         <div class="work-hover"><span>View Project</span></div>
       </a>
       <div class="work-page-info">
-        <div>
+        <div class="work-page-info-left">
           <h2>Fairmont Hotels</h2>
           <span class="tag">Editorial Campaign</span>
         </div>
         <div class="work-page-meta">
+          <span class="work-page-cat">Architectural</span>
           <span class="year">2024</span>
         </div>
       </div>
     </article>
 
-    <article class="work-page-item js-reveal-up" style="--delay: 0.05s">
+    <!-- 3 — HALF: AZUR Legacy Collection -->
+    <article class="work-page-item js-reveal-up" style="--delay:0.1s" data-category="commercial">
       <a href="#" class="work-page-thumb grad-5">
         <div class="work-hover"><span>View Project</span></div>
       </a>
       <div class="work-page-info">
-        <div>
+        <div class="work-page-info-left">
           <h2>AZUR Legacy Collection</h2>
           <span class="tag">Branded Campaign</span>
         </div>
         <div class="work-page-meta">
+          <span class="work-page-cat">Commercial</span>
           <span class="year">2023</span>
         </div>
       </div>
     </article>
 
-    <article class="work-page-item js-reveal-up" style="--delay: 0.15s">
+    <!-- 4 — FULL WIDTH: Tourism Quebec -->
+    <article class="work-page-item work-page-item--full js-reveal-up" style="--delay:0.05s" data-category="lifestyle commercial">
+      <a href="#" class="work-page-thumb work-page-thumb--wide grad-3">
+        <div class="work-hover"><span>View Project</span></div>
+      </a>
+      <div class="work-page-info">
+        <div class="work-page-info-left">
+          <h2>Tourism Québec</h2>
+          <span class="tag">Destination Campaign</span>
+        </div>
+        <div class="work-page-meta">
+          <span class="work-page-cat">Lifestyle · Commercial</span>
+          <span class="year">2023</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 5 — HALF: Osprey Packs -->
+    <article class="work-page-item js-reveal-up" style="--delay:0.05s" data-category="commercial">
       <a href="#" class="work-page-thumb grad-4">
         <div class="work-hover"><span>View Project</span></div>
       </a>
       <div class="work-page-info">
-        <div>
+        <div class="work-page-info-left">
           <h2>Osprey Packs</h2>
           <span class="tag">Product Photography</span>
         </div>
         <div class="work-page-meta">
+          <span class="work-page-cat">Commercial</span>
           <span class="year">2023</span>
         </div>
       </div>
     </article>
 
-    <article class="work-page-item js-reveal-up" style="--delay: 0.1s">
-      <a href="#" class="work-page-thumb grad-3">
-        <div class="work-hover"><span>View Project</span></div>
-      </a>
-      <div class="work-page-info">
-        <div>
-          <h2>Tourism Quebec</h2>
-          <span class="tag">Editorial Campaign</span>
-        </div>
-        <div class="work-page-meta">
-          <span class="year">2023</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="work-page-item js-reveal-up" style="--delay: 0.2s">
+    <!-- 6 — HALF: Hospitality Portfolio -->
+    <article class="work-page-item js-reveal-up" style="--delay:0.1s" data-category="lifestyle">
       <a href="#" class="work-page-thumb grad-2">
         <div class="work-hover"><span>View Project</span></div>
       </a>
       <div class="work-page-info">
-        <div>
+        <div class="work-page-info-left">
           <h2>Hospitality Portfolio</h2>
           <span class="tag">Luxury Hotel Photography</span>
         </div>
         <div class="work-page-meta">
+          <span class="work-page-cat">Lifestyle</span>
           <span class="year">2022</span>
         </div>
       </div>
@@ -180,42 +202,26 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-top">
-        <span class="footer-brand">Citizen North</span>
-        <nav class="footer-nav">
-          <div class="footer-col">
-            <span class="footer-col-title">Work</span>
-            <a href="work.html">Select Projects</a>
-            <a href="work.html">Hotel Photography</a>
-            <a href="work.html">Hotel Videography</a>
-          </div>
-          <div class="footer-col">
-            <span class="footer-col-title">Company</span>
-            <a href="index.html#services">Services</a>
-            <a href="#">About Us</a>
-          </div>
-          <div class="footer-col">
-            <span class="footer-col-title">Clients</span>
-            <a href="index.html#clients">Testimonials</a>
-            <a href="index.html#clients">Client List</a>
-          </div>
-          <div class="footer-col">
-            <span class="footer-col-title">Connect</span>
-            <a href="index.html#contact">Contact</a>
-            <a href="index.html#contact">Proposal</a>
-          </div>
-        </nav>
+    <div class="footer-info">
+      <div class="footer-socials-col">
+        <a href="https://instagram.com/therollingvan" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://facebook.com/TheRollingVan" target="_blank" rel="noopener">Facebook</a>
       </div>
-      <div class="footer-bottom">
-        <span>© 2025 Citizen North Inc. All rights reserved.</span>
-        <div class="footer-social">
-          <a href="https://instagram.com/therollingvan" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://facebook.com/TheRollingVan" target="_blank" rel="noopener">Facebook</a>
-        </div>
-        <a href="#">Terms & Conditions</a>
+      <nav class="footer-links-col">
+        <a href="work.html">Work</a>
+        <a href="services.html">Services</a>
+        <a href="#">About</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="footer-legal-col">
+        <a href="#">Terms &amp; Conditions</a>
+        <span>© 2025 Citizen North Inc.</span>
       </div>
     </div>
+    <a href="work.html" class="footer-cta">
+      <span class="footer-cta-text">SEE WORK</span>
+      <span class="footer-cta-arrow">→</span>
+    </a>
   </footer>
 
   <script src="script.js"></script>

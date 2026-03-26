@@ -244,6 +244,43 @@
   }
 
   /* ──────────────────────────────────────────────────────────
+     WORK PAGE — FILTER
+  ────────────────────────────────────────────────────────── */
+  const filterBtns  = qsa('.work-filter');
+  const workItems   = qsa('.work-page-item');
+  const filterCount = qs('#filterCount');
+
+  if (filterBtns.length) {
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+
+        const filter = btn.dataset.filter;
+        let visible = 0;
+
+        workItems.forEach(item => {
+          const cats = (item.dataset.category || '').split(' ');
+          const show = filter === 'all' || cats.includes(filter);
+          item.classList.toggle('is-hidden', !show);
+          if (show) {
+            visible++;
+            // re-trigger entrance animation
+            item.classList.remove('is-revealed');
+            requestAnimationFrame(() =>
+              requestAnimationFrame(() => item.classList.add('is-revealed'))
+            );
+          }
+        });
+
+        if (filterCount) {
+          filterCount.textContent = visible + ' project' + (visible === 1 ? '' : 's');
+        }
+      });
+    });
+  }
+
+  /* ──────────────────────────────────────────────────────────
      SMOOTH ANCHOR SCROLL
   ────────────────────────────────────────────────────────── */
   qsa('a[href^="#"]').forEach(anchor => {
