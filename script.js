@@ -43,6 +43,7 @@
     navToggle.classList.add('nav-is-open');
     navOverlay.classList.add('nav-is-open');
     logo && logo.classList.add('nav-is-open');
+    document.body.classList.add('nav-is-open');
     document.body.style.overflow = 'hidden';
   }
 
@@ -51,6 +52,7 @@
     navToggle.classList.remove('nav-is-open');
     navOverlay.classList.remove('nav-is-open');
     logo && logo.classList.remove('nav-is-open');
+    document.body.classList.remove('nav-is-open');
     document.body.style.overflow = '';
   }
 
@@ -148,6 +150,62 @@
     if (servicesSection) {
       servicesSection.addEventListener('mouseleave', () => activateSvc(0));
     }
+  }
+
+  /* ──────────────────────────────────────────────────────────
+     TESTIMONIALS CAROUSEL
+  ────────────────────────────────────────────────────────── */
+  const testimonialsSection = qs('#testimonialsSection');
+
+  if (testimonialsSection && window.matchMedia('(pointer: fine)').matches) {
+    const slides  = qsa('.testimonial-slide', testimonialsSection);
+    const dots    = qsa('.t-dot', testimonialsSection);
+    const tCursor = qs('#testimonialsCursor');
+    let current   = 0;
+    const total   = slides.length;
+
+    function goTo(idx) {
+      const next = ((idx % total) + total) % total;
+      const prev = ((current - 1) + total) % total;
+      current = next;
+
+      slides.forEach((slide, i) => {
+        slide.classList.remove('is-active', 'is-prev', 'is-next');
+        if (i === current)                         slide.classList.add('is-active');
+        else if (i === ((current - 1 + total) % total)) slide.classList.add('is-prev');
+        else if (i === ((current + 1) % total))    slide.classList.add('is-next');
+      });
+
+      dots.forEach((dot, i) => dot.classList.toggle('is-active', i === current));
+    }
+
+    // Dot clicks
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => goTo(parseInt(dot.dataset.index, 10)));
+    });
+
+    // Mouse tracking — show NEXT bubble on right half, normal on left
+    testimonialsSection.addEventListener('mousemove', (e) => {
+      if (!tCursor) return;
+      tCursor.style.left = e.clientX + 'px';
+      tCursor.style.top  = e.clientY + 'px';
+      const rect = testimonialsSection.getBoundingClientRect();
+      const inRightHalf = (e.clientX - rect.left) > rect.width * 0.5;
+      tCursor.classList.toggle('is-visible', inRightHalf);
+    });
+
+    testimonialsSection.addEventListener('mouseleave', () => {
+      tCursor && tCursor.classList.remove('is-visible');
+    });
+
+    // Click right half → next, left half → prev
+    testimonialsSection.addEventListener('click', (e) => {
+      // Ignore dot clicks
+      if (e.target.classList.contains('t-dot')) return;
+      const rect = testimonialsSection.getBoundingClientRect();
+      if ((e.clientX - rect.left) > rect.width * 0.5) goTo(current + 1);
+      else goTo(current - 1);
+    });
   }
 
   /* ──────────────────────────────────────────────────────────
