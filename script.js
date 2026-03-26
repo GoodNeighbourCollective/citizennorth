@@ -153,54 +153,72 @@
   }
 
   /* ──────────────────────────────────────────────────────────
-     TESTIMONIALS CAROUSEL
+     TESTIMONIALS CAROUSEL — flex-track approach
+     Slide width: 65vw  Gap: 3vw  Step: 68vw
+     Centering offset: (100 - 65) / 2 = 17.5vw
   ────────────────────────────────────────────────────────── */
   const testimonialsSection = qs('#testimonialsSection');
 
-  if (testimonialsSection && window.matchMedia('(pointer: fine)').matches) {
-    const slides  = qsa('.testimonial-slide', testimonialsSection);
-    const dots    = qsa('.t-dot', testimonialsSection);
+  if (testimonialsSection) {
+    const track   = qs('.testimonials-track',  testimonialsSection);
+    const slides  = qsa('.testimonial-slide',  testimonialsSection);
+    const dots    = qsa('.t-dot',              testimonialsSection);
     const tCursor = qs('#testimonialsCursor');
     let current   = 0;
     const total   = slides.length;
+    const SLIDE_VW  = 65;   // vw
+    const GAP_VW    = 3;    // vw
+    const STEP_VW   = SLIDE_VW + GAP_VW;              // 68vw per step
+    const OFFSET_VW = (100 - SLIDE_VW) / 2;           // 17.5vw centering
+
+    function positionTrack() {
+      const tx = OFFSET_VW - current * STEP_VW;
+      track.style.transform = `translateX(${tx}vw)`;
+    }
 
     function goTo(idx) {
-      const next = ((idx % total) + total) % total;
-      const prev = ((current - 1) + total) % total;
-      current = next;
+      current = Math.max(0, Math.min(total - 1, idx));
+      positionTrack();
+      slides.forEach((s, i) => s.classList.toggle('is-active', i === current));
+      dots.forEach((d, i)   => d.classList.toggle('is-active', i === current));
 
-      slides.forEach((slide, i) => {
-        slide.classList.remove('is-active', 'is-prev', 'is-next');
-        if (i === current)                         slide.classList.add('is-active');
-        else if (i === ((current - 1 + total) % total)) slide.classList.add('is-prev');
-        else if (i === ((current + 1) % total))    slide.classList.add('is-next');
-      });
-
-      dots.forEach((dot, i) => dot.classList.toggle('is-active', i === current));
+      // Update NEXT cursor label: show PREV on left half when not at first
+      if (tCursor) tCursor.textContent = 'NEXT';
     }
+
+    // Set initial position without animation
+    track.style.transition = 'none';
+    positionTrack();
+    slides[0].classList.add('is-active');
+    requestAnimationFrame(() => {
+      track.style.transition = '';
+    });
 
     // Dot clicks
     dots.forEach(dot => {
       dot.addEventListener('click', () => goTo(parseInt(dot.dataset.index, 10)));
     });
 
-    // Mouse tracking — show NEXT bubble on right half, normal on left
+    // Mouse tracking — show NEXT/PREV bubble following cursor
     testimonialsSection.addEventListener('mousemove', (e) => {
       if (!tCursor) return;
       tCursor.style.left = e.clientX + 'px';
       tCursor.style.top  = e.clientY + 'px';
       const rect = testimonialsSection.getBoundingClientRect();
       const inRightHalf = (e.clientX - rect.left) > rect.width * 0.5;
-      tCursor.classList.toggle('is-visible', inRightHalf);
+      // Only show on edges (not in the centre 30%)
+      const pct = (e.clientX - rect.left) / rect.width;
+      const showCursor = pct > 0.6 || pct < 0.4;
+      tCursor.textContent  = inRightHalf ? 'NEXT' : 'PREV';
+      tCursor.classList.toggle('is-visible', showCursor);
     });
 
     testimonialsSection.addEventListener('mouseleave', () => {
       tCursor && tCursor.classList.remove('is-visible');
     });
 
-    // Click right half → next, left half → prev
+    // Click edges to navigate; ignore dots
     testimonialsSection.addEventListener('click', (e) => {
-      // Ignore dot clicks
       if (e.target.classList.contains('t-dot')) return;
       const rect = testimonialsSection.getBoundingClientRect();
       if ((e.clientX - rect.left) > rect.width * 0.5) goTo(current + 1);
