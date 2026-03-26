@@ -154,8 +154,8 @@
 
   /* ──────────────────────────────────────────────────────────
      TESTIMONIALS CAROUSEL — flex-track approach
-     Slide width: 65vw  Gap: 3vw  Step: 68vw
-     Centering offset: (100 - 65) / 2 = 17.5vw
+     Slide width: 60vw  Gap: 3vw  Step: 63vw
+     Centering offset: (100 - 60) / 2 = 20vw
   ────────────────────────────────────────────────────────── */
   const testimonialsSection = qs('#testimonialsSection');
 
@@ -166,10 +166,10 @@
     const tCursor = qs('#testimonialsCursor');
     let current   = 0;
     const total   = slides.length;
-    const SLIDE_VW  = 65;   // vw
+    const SLIDE_VW  = 60;   // vw
     const GAP_VW    = 3;    // vw
-    const STEP_VW   = SLIDE_VW + GAP_VW;              // 68vw per step
-    const OFFSET_VW = (100 - SLIDE_VW) / 2;           // 17.5vw centering
+    const STEP_VW   = SLIDE_VW + GAP_VW;              // 63vw per step
+    const OFFSET_VW = (100 - SLIDE_VW) / 2;           // 20vw centering
 
     function positionTrack() {
       const tx = OFFSET_VW - current * STEP_VW;

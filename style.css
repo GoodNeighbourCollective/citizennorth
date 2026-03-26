@@ -1415,15 +1415,15 @@ body.page-light:not(.nav-is-open) .header:not(.is-scrolled) .header-page-pill {
   display: flex;
   gap: 3vw;
   /* Initial transform set by JS; fallback centres slide 0 */
-  transform: translateX(16vw);
+  transform: translateX(20vw);
   transition: transform 0.9s cubic-bezier(0.7, 0, 0.3, 1);
   will-change: transform;
 }
 
-/* Each slide is 68 vw — leaves 16 vw peeking on each side when centred */
+/* Each slide is 60vw — leaves 20vw peeking on each side when centred */
 .testimonial-slide {
-  flex: 0 0 65vw;
-  min-width: 65vw;
+  flex: 0 0 60vw;
+  min-width: 60vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1444,7 +1444,7 @@ body.page-light:not(.nav-is-open) .header:not(.is-scrolled) .header-page-pill {
 .testimonial-quote {
   font-family: var(--f-display);
   font-weight: 800;
-  font-size: clamp(3rem, 5.5vw, 9rem);
+  font-size: clamp(2.8rem, 4vw, 13rem);
   letter-spacing: -0.04em;
   line-height: 1.05;
   color: var(--blue-deep);
