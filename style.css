@@ -1413,23 +1413,27 @@ body.page-light:not(.nav-is-open) .header:not(.is-scrolled) .header-page-pill {
 /* Flex row — JS translates this to centre the active slide */
 .testimonials-track {
   display: flex;
-  gap: 3vw;
-  /* Initial transform set by JS; fallback centres slide 0 */
-  transform: translateX(20vw);
+  gap: 2vw;
+  /* Initial: centres slide 0 at 48vw width → offset=(100-48)/2=26vw */
+  transform: translateX(26vw);
   transition: transform 0.9s cubic-bezier(0.7, 0, 0.3, 1);
   will-change: transform;
 }
 
-/* Each slide is 60vw — leaves 20vw peeking on each side when centred */
+/*
+  Slide width 48vw: active slide takes ~half the screen,
+  leaving (100-48)/2 - gap ≈ 24vw of each adjacent slide visible
+  — roughly half of the 48vw slide peeking from each edge.
+*/
 .testimonial-slide {
-  flex: 0 0 60vw;
-  min-width: 60vw;
+  flex: 0 0 48vw;
+  min-width: 48vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 5rem 4vw 3rem;
+  padding: 5rem 3vw 3rem;
   opacity: 0.14;
   transition: opacity 0.5s ease;
   cursor: pointer;
@@ -1439,6 +1443,12 @@ body.page-light:not(.nav-is-open) .header:not(.is-scrolled) .header-page-pill {
 .testimonial-slide.is-active {
   opacity: 1;
   cursor: default;
+}
+
+/* Mobile: wider slides, smaller peek */
+@media (max-width: 768px) {
+  .testimonials-track { transform: translateX(9vw); }
+  .testimonial-slide  { flex: 0 0 82vw; min-width: 82vw; padding: 4rem 2vw 2rem; }
 }
 
 .testimonial-quote {

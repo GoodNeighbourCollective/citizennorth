@@ -154,8 +154,9 @@
 
   /* ──────────────────────────────────────────────────────────
      TESTIMONIALS CAROUSEL — flex-track approach
-     Slide width: 60vw  Gap: 3vw  Step: 63vw
-     Centering offset: (100 - 60) / 2 = 20vw
+     Desktop: slide 48vw, gap 2vw, step 50vw, offset 26vw
+             → 24vw of adjacent slide visible ≈ 50% peek
+     Mobile:  slide 82vw, gap 2vw, step 84vw, offset 9vw
   ────────────────────────────────────────────────────────── */
   const testimonialsSection = qs('#testimonialsSection');
 
@@ -166,33 +167,34 @@
     const tCursor = qs('#testimonialsCursor');
     let current   = 0;
     const total   = slides.length;
-    const SLIDE_VW  = 60;   // vw
-    const GAP_VW    = 3;    // vw
-    const STEP_VW   = SLIDE_VW + GAP_VW;              // 63vw per step
-    const OFFSET_VW = (100 - SLIDE_VW) / 2;           // 20vw centering
 
-    function positionTrack() {
-      const tx = OFFSET_VW - current * STEP_VW;
-      track.style.transform = `translateX(${tx}vw)`;
+    function cfg() {
+      const mobile = window.innerWidth < 768;
+      const SLIDE  = mobile ? 82 : 48;
+      const GAP    = 2;
+      return { SLIDE, GAP, STEP: SLIDE + GAP, OFFSET: (100 - SLIDE) / 2 };
+    }
+
+    function positionTrack(animate) {
+      const { STEP, OFFSET } = cfg();
+      if (!animate) track.style.transition = 'none';
+      track.style.transform = `translateX(${OFFSET - current * STEP}vw)`;
+      if (!animate) requestAnimationFrame(() => { track.style.transition = ''; });
     }
 
     function goTo(idx) {
       current = Math.max(0, Math.min(total - 1, idx));
-      positionTrack();
+      positionTrack(true);
       slides.forEach((s, i) => s.classList.toggle('is-active', i === current));
       dots.forEach((d, i)   => d.classList.toggle('is-active', i === current));
-
-      // Update NEXT cursor label: show PREV on left half when not at first
-      if (tCursor) tCursor.textContent = 'NEXT';
     }
 
     // Set initial position without animation
-    track.style.transition = 'none';
-    positionTrack();
+    positionTrack(false);
     slides[0].classList.add('is-active');
-    requestAnimationFrame(() => {
-      track.style.transition = '';
-    });
+
+    // Reposition on resize without animation
+    window.addEventListener('resize', () => positionTrack(false));
 
     // Dot clicks
     dots.forEach(dot => {
