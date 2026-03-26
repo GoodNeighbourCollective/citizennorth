@@ -1228,16 +1228,21 @@ body.page-light .header:not(.is-scrolled) .header-page-pill {
   line-height: 0.88;
   color: var(--blue-deep);
 }
-/* inherit split-word animation from homepage */
+/* Services hero word-in animation */
+@keyframes word-in {
+  from { opacity: 0; transform: translateY(100%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.svc-text-hero .split-line { display: block; overflow: hidden; }
 .svc-text-hero .split-word {
   display: inline-block;
   opacity: 0;
   transform: translateY(100%);
-  animation: word-in 0.8s var(--ease) forwards;
+  animation: word-in 0.9s var(--ease) forwards;
 }
 .svc-text-hero .split-line:nth-child(1) .split-word { animation-delay: 0.05s; }
-.svc-text-hero .split-line:nth-child(2) .split-word { animation-delay: 0.18s; }
-.svc-text-hero .split-line:nth-child(3) .split-word { animation-delay: 0.31s; }
+.svc-text-hero .split-line:nth-child(2) .split-word { animation-delay: 0.2s; }
+.svc-text-hero .split-line:nth-child(3) .split-word { animation-delay: 0.35s; }
 
 /* ② Full-width image below text hero */
 .svc-hero-image {
