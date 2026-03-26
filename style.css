@@ -1188,16 +1188,16 @@ body {
    ============================================================ */
 
 /* Page-light: header shows dark text on white hero background */
-body.page-light .header:not(.is-scrolled) .logo,
-body.page-light .header:not(.is-scrolled) .nav-toggle,
-body.page-light .header:not(.is-scrolled) .nav-toggle-plus,
-body.page-light .header:not(.is-scrolled) .nav-toggle-label {
+body.page-light:not(.nav-is-open) .header:not(.is-scrolled) .logo,
+body.page-light:not(.nav-is-open) .header:not(.is-scrolled) .nav-toggle,
+body.page-light:not(.nav-is-open) .header:not(.is-scrolled) .nav-toggle-plus,
+body.page-light:not(.nav-is-open) .header:not(.is-scrolled) .nav-toggle-label {
   color: var(--blue-deep);
 }
-body.page-light .header:not(.is-scrolled)::after {
+body.page-light:not(.nav-is-open) .header:not(.is-scrolled)::after {
   background: rgba(15,0,176,0.2);
 }
-body.page-light .header:not(.is-scrolled) .header-page-pill {
+body.page-light:not(.nav-is-open) .header:not(.is-scrolled) .header-page-pill {
   border-color: rgba(15,0,176,0.3);
   color: var(--blue-deep);
 }
