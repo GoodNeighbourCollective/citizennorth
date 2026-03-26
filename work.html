@@ -11,27 +11,18 @@
   <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="page-light">
 
   <!-- Custom Cursor -->
   <div class="cursor" id="cursor">
     <span class="cursor-label">View</span>
   </div>
 
-  <!-- Header -->
+  <!-- Header — pill replaces marquee, same as services page -->
   <header class="header" id="header">
     <div class="header-inner">
       <a href="index.html" class="logo" id="logo">Citizen North</a>
-      <div class="header-marquee" aria-hidden="true">
-        <div class="header-marquee-track">
-          <span>Elevating hospitality and destinations through design and storytelling for more than a decade</span>
-          <span class="marquee-dot">&bull;</span>
-          <span>Elevating hospitality and destinations through design and storytelling for more than a decade</span>
-          <span class="marquee-dot">&bull;</span>
-          <span>Elevating hospitality and destinations through design and storytelling for more than a decade</span>
-          <span class="marquee-dot">&bull;</span>
-        </div>
-      </div>
+      <div class="header-page-pill">Featured Projects</div>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
         <span class="nav-toggle-plus">+</span>
         <span class="nav-toggle-label">Menu</span>
@@ -74,15 +65,13 @@
     </div>
   </nav>
 
-  <!-- Page Hero -->
-  <div class="page-hero">
-    <span class="page-hero-label">Selected Work</span>
-    <h1 class="page-hero-heading split-line">
-      <span class="split-word">The</span>
-      <span class="split-word">Work</span>
+  <!-- Hero — white background, giant dark heading (same style as services) -->
+  <section class="work-hero">
+    <h1 class="work-hero-title">
+      <span class="split-line"><span class="split-word">The Work</span></span>
     </h1>
-    <p class="page-hero-sub">Select projects from our portfolio of luxury hospitality photography, videography and branded campaigns — delivered over more than a decade.</p>
-  </div>
+    <p class="work-hero-sub">Select projects from our portfolio of luxury hospitality photography, videography and branded campaigns — delivered over more than a decade.</p>
+  </section>
 
   <!-- Filter Bar -->
   <div class="work-filter-bar">
@@ -93,108 +82,86 @@
     <span class="work-filter-count" id="filterCount">6 projects</span>
   </div>
 
-  <!-- Work Grid -->
+  <!-- Work Grid — even 2-column, category tags overlaid on images -->
   <div class="work-page-grid" id="workGrid">
 
-    <!-- 1 — FULL WIDTH: Club Med Charlevoix -->
-    <article class="work-page-item work-page-item--full js-reveal-up" style="--delay:0s" data-category="architectural lifestyle">
-      <a href="work/club-med-charlevoix.html" class="work-page-thumb work-page-thumb--wide grad-1">
+    <article class="work-page-item js-reveal-up" style="--delay:0s" data-category="architectural lifestyle">
+      <a href="work/club-med-charlevoix.html" class="work-page-thumb grad-1">
+        <div class="work-img-tags">
+          <span class="work-img-tag">Architectural</span>
+          <span class="work-img-tag">Lifestyle</span>
+        </div>
         <div class="work-hover"><span>View Project</span></div>
       </a>
       <div class="work-page-info">
-        <div class="work-page-info-left">
-          <h2>Club Med Charlevoix</h2>
-          <span class="tag">Hotel Photography &amp; Videography</span>
-        </div>
-        <div class="work-page-meta">
-          <span class="work-page-cat">Architectural · Lifestyle</span>
-          <span class="year">2024</span>
-        </div>
+        <p class="work-page-desc"><strong>Club Med Charlevoix</strong> — Capturing the soul of North America's premier mountain resort.</p>
+        <span class="work-page-year">2024</span>
       </div>
     </article>
 
-    <!-- 2 — HALF: Fairmont Hotels -->
-    <article class="work-page-item js-reveal-up" style="--delay:0.05s" data-category="architectural">
+    <article class="work-page-item js-reveal-up" style="--delay:0.08s" data-category="architectural">
       <a href="#" class="work-page-thumb grad-2">
+        <div class="work-img-tags">
+          <span class="work-img-tag">Architectural</span>
+        </div>
         <div class="work-hover"><span>View Project</span></div>
       </a>
       <div class="work-page-info">
-        <div class="work-page-info-left">
-          <h2>Fairmont Hotels</h2>
-          <span class="tag">Editorial Campaign</span>
-        </div>
-        <div class="work-page-meta">
-          <span class="work-page-cat">Architectural</span>
-          <span class="year">2024</span>
-        </div>
+        <p class="work-page-desc"><strong>Fairmont Hotels</strong> — An editorial campaign across three iconic Canadian properties.</p>
+        <span class="work-page-year">2024</span>
       </div>
     </article>
 
-    <!-- 3 — HALF: AZUR Legacy Collection -->
-    <article class="work-page-item js-reveal-up" style="--delay:0.1s" data-category="commercial">
+    <article class="work-page-item js-reveal-up" style="--delay:0.04s" data-category="lifestyle commercial">
+      <a href="#" class="work-page-thumb grad-3">
+        <div class="work-img-tags">
+          <span class="work-img-tag">Lifestyle</span>
+          <span class="work-img-tag">Commercial</span>
+        </div>
+        <div class="work-hover"><span>View Project</span></div>
+      </a>
+      <div class="work-page-info">
+        <p class="work-page-desc"><strong>Tourism Québec</strong> — A destination campaign celebrating four seasons of adventure.</p>
+        <span class="work-page-year">2023</span>
+      </div>
+    </article>
+
+    <article class="work-page-item js-reveal-up" style="--delay:0.12s" data-category="commercial">
       <a href="#" class="work-page-thumb grad-5">
+        <div class="work-img-tags">
+          <span class="work-img-tag">Commercial</span>
+        </div>
         <div class="work-hover"><span>View Project</span></div>
       </a>
       <div class="work-page-info">
-        <div class="work-page-info-left">
-          <h2>AZUR Legacy Collection</h2>
-          <span class="tag">Branded Campaign</span>
-        </div>
-        <div class="work-page-meta">
-          <span class="work-page-cat">Commercial</span>
-          <span class="year">2023</span>
-        </div>
+        <p class="work-page-desc"><strong>AZUR Legacy Collection</strong> — Brand identity and campaign photography for a boutique hotel group.</p>
+        <span class="work-page-year">2023</span>
       </div>
     </article>
 
-    <!-- 4 — FULL WIDTH: Tourism Quebec -->
-    <article class="work-page-item work-page-item--full js-reveal-up" style="--delay:0.05s" data-category="lifestyle commercial">
-      <a href="#" class="work-page-thumb work-page-thumb--wide grad-3">
-        <div class="work-hover"><span>View Project</span></div>
-      </a>
-      <div class="work-page-info">
-        <div class="work-page-info-left">
-          <h2>Tourism Québec</h2>
-          <span class="tag">Destination Campaign</span>
-        </div>
-        <div class="work-page-meta">
-          <span class="work-page-cat">Lifestyle · Commercial</span>
-          <span class="year">2023</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- 5 — HALF: Osprey Packs -->
-    <article class="work-page-item js-reveal-up" style="--delay:0.05s" data-category="commercial">
+    <article class="work-page-item js-reveal-up" style="--delay:0.06s" data-category="commercial">
       <a href="#" class="work-page-thumb grad-4">
+        <div class="work-img-tags">
+          <span class="work-img-tag">Commercial</span>
+        </div>
         <div class="work-hover"><span>View Project</span></div>
       </a>
       <div class="work-page-info">
-        <div class="work-page-info-left">
-          <h2>Osprey Packs</h2>
-          <span class="tag">Product Photography</span>
-        </div>
-        <div class="work-page-meta">
-          <span class="work-page-cat">Commercial</span>
-          <span class="year">2023</span>
-        </div>
+        <p class="work-page-desc"><strong>Osprey Packs</strong> — Product and lifestyle photography for the iconic outdoor brand.</p>
+        <span class="work-page-year">2023</span>
       </div>
     </article>
 
-    <!-- 6 — HALF: Hospitality Portfolio -->
     <article class="work-page-item js-reveal-up" style="--delay:0.1s" data-category="lifestyle">
       <a href="#" class="work-page-thumb grad-2">
+        <div class="work-img-tags">
+          <span class="work-img-tag">Lifestyle</span>
+        </div>
         <div class="work-hover"><span>View Project</span></div>
       </a>
       <div class="work-page-info">
-        <div class="work-page-info-left">
-          <h2>Hospitality Portfolio</h2>
-          <span class="tag">Luxury Hotel Photography</span>
-        </div>
-        <div class="work-page-meta">
-          <span class="work-page-cat">Lifestyle</span>
-          <span class="year">2022</span>
-        </div>
+        <p class="work-page-desc"><strong>Hospitality Portfolio</strong> — A curated collection of luxury property photography.</p>
+        <span class="work-page-year">2022</span>
       </div>
     </article>
 
