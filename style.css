@@ -896,7 +896,7 @@ body {
 .footer-cta-text {
   font-family: var(--f-display);
   font-weight: 800;
-  font-size: clamp(8rem, 18vw, 28rem);
+  font-size: clamp(5rem, min(8vw, 14vh), 13rem);
   letter-spacing: -0.04em;
   line-height: 0.9;
   color: #1a1a1a;
@@ -906,7 +906,7 @@ body {
 .footer-cta:hover .footer-cta-text { color: var(--blue-deep); }
 
 .footer-cta-arrow {
-  font-size: clamp(12rem, 26vw, 40rem);
+  font-size: clamp(5rem, min(8vw, 14vh), 13rem);
   color: #1a1a1a;
   line-height: 0.9;
   flex-shrink: 0;
@@ -1187,42 +1187,77 @@ body {
    SERVICES PAGE
    ============================================================ */
 
-/* ① Full-screen hero image */
-.svc-hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 0 var(--pad) 4rem;
-  overflow: hidden;
+/* Page-light: header shows dark text on white hero background */
+body.page-light .header:not(.is-scrolled) .logo,
+body.page-light .header:not(.is-scrolled) .nav-toggle,
+body.page-light .header:not(.is-scrolled) .nav-toggle-plus,
+body.page-light .header:not(.is-scrolled) .nav-toggle-label {
+  color: var(--blue-deep);
 }
-.svc-hero-img {
-  position: absolute;
-  inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center;
+body.page-light .header:not(.is-scrolled)::after {
+  background: rgba(15,0,176,0.2);
 }
-.svc-hero-content {
-  position: relative;
-  z-index: 2;
+body.page-light .header:not(.is-scrolled) .header-page-pill {
+  border-color: rgba(15,0,176,0.3);
+  color: var(--blue-deep);
 }
-.svc-hero-title {
+
+/* "Our Offer" pill in header centre */
+.header-page-pill {
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 10rem;
+  padding: 0.65rem 1.8rem;
+  font-family: var(--f-body);
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  white-space: nowrap;
+}
+
+/* ① White-background text hero */
+.svc-text-hero {
+  background: #fff;
+  padding: 14rem var(--pad) 8rem;
+}
+.svc-text-hero-title {
   font-family: var(--f-display);
   font-weight: 800;
   font-size: clamp(7rem, 14vw, 22rem);
   letter-spacing: -0.04em;
   line-height: 0.88;
-  color: #fff;
+  color: var(--blue-deep);
 }
-/* reuse split-word animation from homepage */
+/* inherit split-word animation from homepage */
+.svc-text-hero .split-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(100%);
+  animation: word-in 0.8s var(--ease) forwards;
+}
+.svc-text-hero .split-line:nth-child(1) .split-word { animation-delay: 0.05s; }
+.svc-text-hero .split-line:nth-child(2) .split-word { animation-delay: 0.18s; }
+.svc-text-hero .split-line:nth-child(3) .split-word { animation-delay: 0.31s; }
 
-/* ② Large intro statement */
+/* ② Full-width image below text hero */
+.svc-hero-image {
+  width: 100%;
+  height: 65vh;
+  overflow: hidden;
+  background: var(--black);
+}
+.svc-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ③ Large intro statement */
 .svc-statement {
   background: #fff;
-  padding: 10rem var(--pad);
-  border-bottom: 1px solid rgba(0,0,0,0.08);
+  padding: 14rem var(--pad) 14rem;
+  border-bottom: 1px solid rgba(15,0,176,0.12);
 }
 .svc-statement-text {
   font-family: var(--f-display);
@@ -1230,11 +1265,11 @@ body {
   font-size: clamp(2.6rem, 3.8vw, 5.5rem);
   letter-spacing: -0.03em;
   line-height: 1.18;
-  color: #1a1a1a;
+  color: var(--blue-deep);
   max-width: 120rem;
 }
 
-/* ③ Three-column section */
+/* ④ Three-column section */
 .svc-overview {
   background: #fff;
   padding: 0 var(--pad) var(--gap);
@@ -1242,7 +1277,7 @@ body {
 .svc-overview-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid rgba(0,0,0,0.1);
+  border-top: 1px solid rgba(15,0,176,0.25);
   min-height: 80vh;
 }
 .svc-col {
@@ -1250,7 +1285,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   padding: 4rem 4rem 4rem 0;
-  border-right: 1px solid rgba(0,0,0,0.1);
+  border-right: 1px solid rgba(15,0,176,0.25);
 }
 .svc-col:last-child { border-right: none; padding-right: 0; }
 .svc-col:not(:first-child) { padding-left: 4rem; }
@@ -1275,7 +1310,8 @@ body {
   font-family: var(--f-body);
   font-size: 1.55rem;
   line-height: 1.7;
-  color: #555;
+  color: var(--blue-deep);
+  opacity: 0.7;
   max-width: 38rem;
 }
 
@@ -1303,9 +1339,9 @@ body {
   color: var(--blue-deep);
   transition: opacity 0.2s ease;
 }
-.svc-big-list li:hover { opacity: 0.55; }
+.svc-big-list li:hover { opacity: 0.45; }
 
-/* ④ Why Citizen North — blue background */
+/* ⑤ Why Citizen North — blue background */
 .svc-why {
   background: var(--blue-deep);
   padding: var(--gap) var(--pad);
@@ -1340,8 +1376,9 @@ body {
 .svc-why-sub {
   font-family: var(--f-body);
   font-size: 1.6rem;
-  color: rgba(255,255,255,0.55);
-  max-width: 50rem;
+  line-height: 1.7;
+  color: #fff;
+  max-width: 52rem;
 }
 .svc-why-body p {
   font-family: var(--f-display);
@@ -1353,7 +1390,7 @@ body {
   max-width: 110rem;
 }
 
-/* ⑤ Large centred quote */
+/* ⑥ Large centred quote */
 .svc-quote-section {
   background: #fff;
   padding: var(--gap) var(--pad);
@@ -1382,17 +1419,30 @@ body {
   color: #999;
 }
 
-/* ⑥ Work image strip */
-.svc-work-strip {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.6rem;
-  padding: 0 var(--pad) var(--gap);
+/* ⑦ Auto-sliding image carousel */
+.svc-carousel-section {
   background: #fff;
+  overflow: hidden;
+  padding: 6rem 0 8rem;
 }
-.svc-strip-item {
-  aspect-ratio: 4/3;
-  border-radius: 0.4rem;
+.svc-carousel-track {
+  display: flex;
+  gap: 1.8rem;
+  width: max-content;
+  animation: carousel-slide 28s linear infinite;
+  cursor: default;
+  user-select: none;
+}
+.svc-carousel-item {
+  width: 42rem;
+  height: 28rem;
+  border-radius: 0.6rem;
+  flex-shrink: 0;
+}
+
+@keyframes carousel-slide {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 /* ============================================================
@@ -1445,11 +1495,13 @@ body {
   .project-meta { flex-wrap: wrap; gap: 3rem; }
 
   /* Services page */
+  .svc-text-hero { padding: 12rem var(--pad) 6rem; }
+  .svc-hero-image { height: 45vh; }
   .svc-overview-grid { grid-template-columns: 1fr; min-height: unset; }
-  .svc-col { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.1); padding: 5rem 0; min-height: unset; }
+  .svc-col { border-right: none; border-bottom: 1px solid rgba(15,0,176,0.2); padding: 5rem 0; }
   .svc-col:last-child { border-bottom: none; }
   .svc-col:not(:first-child) { padding-left: 0; }
-  .svc-work-strip { grid-template-columns: repeat(2, 1fr); }
+  .svc-carousel-item { width: 30rem; height: 22rem; }
 }
 @media (max-width: 600px) {
   .work-grid { grid-template-columns: 1fr; }
@@ -1460,7 +1512,7 @@ body {
   .clients-col li { font-size: clamp(1.8rem, 4vw, 3rem); }
   .clients-divider { margin: 0 3rem; }
   .project-next { flex-direction: column; align-items: flex-start; }
-  .svc-work-strip { grid-template-columns: repeat(2, 1fr); }
+  .svc-carousel-item { width: 24rem; height: 18rem; }
 }
 
 /* ============================================================

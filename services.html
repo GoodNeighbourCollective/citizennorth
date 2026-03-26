@@ -11,27 +11,18 @@
   <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="page-light">
 
   <!-- Custom Cursor -->
   <div class="cursor" id="cursor">
     <span class="cursor-label">View</span>
   </div>
 
-  <!-- Header -->
+  <!-- Header — pill replaces marquee on this page -->
   <header class="header" id="header">
     <div class="header-inner">
       <a href="index.html" class="logo" id="logo">Citizen North</a>
-      <div class="header-marquee" aria-hidden="true">
-        <div class="header-marquee-track">
-          <span>Elevating hospitality and destinations through design and storytelling for more than a decade</span>
-          <span class="marquee-dot">&bull;</span>
-          <span>Elevating hospitality and destinations through design and storytelling for more than a decade</span>
-          <span class="marquee-dot">&bull;</span>
-          <span>Elevating hospitality and destinations through design and storytelling for more than a decade</span>
-          <span class="marquee-dot">&bull;</span>
-        </div>
-      </div>
+      <div class="header-page-pill">Our Offer</div>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
         <span class="nav-toggle-plus">+</span>
         <span class="nav-toggle-label">Menu</span>
@@ -74,26 +65,28 @@
     </div>
   </nav>
 
-  <!-- ① HERO — full-screen image -->
-  <section class="svc-hero">
-    <img class="svc-hero-img" src="https://i.imgur.com/DZwMbo5.jpg" alt="Citizen North — luxury hospitality photography">
-    <div class="svc-hero-content">
-      <h1 class="svc-hero-title">
-        <span class="split-line"><span class="split-word">We Craft</span></span>
-        <span class="split-line"><span class="split-word">Visual</span></span>
-        <span class="split-line"><span class="split-word">Experiences</span></span>
-      </h1>
-    </div>
+  <!-- ① TEXT HERO — white background, giant blue heading -->
+  <section class="svc-text-hero">
+    <h1 class="svc-text-hero-title">
+      <span class="split-line"><span class="split-word">We Craft</span></span>
+      <span class="split-line"><span class="split-word">Visual</span></span>
+      <span class="split-line"><span class="split-word">Experiences</span></span>
+    </h1>
   </section>
 
-  <!-- ② INTRO STATEMENT — large bold paragraph -->
+  <!-- ② HERO IMAGE — full-width photo below the heading -->
+  <div class="svc-hero-image">
+    <img src="https://i.imgur.com/DZwMbo5.jpg" alt="Citizen North — luxury hospitality photography">
+  </div>
+
+  <!-- ③ INTRO STATEMENT — large bold paragraph -->
   <section class="svc-statement">
     <p class="svc-statement-text js-reveal">
       We believe extraordinary hospitality deserves extraordinary visual content. We partner with the world's finest hotels, resorts, and destination brands to produce photography and film that captures the feeling of being there — and makes people want to be.
     </p>
   </section>
 
-  <!-- ③ THREE-COLUMN SECTION -->
+  <!-- ④ THREE-COLUMN SECTION -->
   <section class="svc-overview">
     <div class="svc-overview-grid">
 
@@ -150,19 +143,19 @@
     </div>
   </section>
 
-  <!-- ④ WHY CITIZEN NORTH — blue background -->
+  <!-- ⑤ WHY CITIZEN NORTH — blue background -->
   <section class="svc-why">
     <div class="svc-why-top js-reveal-fade">
       <span class="svc-why-pill">Our approach</span>
       <h2 class="svc-why-heading">WHY CITIZEN<br>NORTH?</h2>
-      <p class="svc-why-sub">What drives us and the reason clients keep coming back.</p>
+      <p class="svc-why-sub">Our mantra to help us create purposeful, original work.<br>What makes us tick and the reason clients want to work with us.</p>
     </div>
     <div class="svc-why-body js-reveal">
       <p>Precision over volume. Restraint over flash. Deep knowledge of hospitality over generalist production. We move efficiently on location, understand the rhythms of a property, and leave with imagery that elevates the brand — every single time. No house style. No templated approach. Just work rooted in the identity of the place.</p>
     </div>
   </section>
 
-  <!-- ⑤ TESTIMONIAL QUOTE -->
+  <!-- ⑥ TESTIMONIAL QUOTE -->
   <section class="svc-quote-section">
     <blockquote class="svc-big-quote js-reveal-up">
       "Citizen North captured not just our resort — they captured the feeling of being here."
@@ -170,61 +163,48 @@
     <cite class="svc-quote-cite js-reveal-fade">— Marketing Director, Club Med Charlevoix</cite>
   </section>
 
-  <!-- ⑥ WORK STRIP -->
-  <div class="svc-work-strip">
-    <a href="work/club-med-charlevoix.html" class="svc-strip-item work-page-thumb grad-1">
-      <div class="work-hover"><span>View Project</span></div>
-    </a>
-    <div class="svc-strip-item work-page-thumb grad-3">
-      <div class="work-hover"><span>View Project</span></div>
-    </div>
-    <div class="svc-strip-item work-page-thumb grad-5">
-      <div class="work-hover"><span>View Project</span></div>
-    </div>
-    <div class="svc-strip-item work-page-thumb grad-2">
-      <div class="work-hover"><span>View Project</span></div>
+  <!-- ⑦ AUTO-SLIDING IMAGE CAROUSEL -->
+  <div class="svc-carousel-section">
+    <div class="svc-carousel-track">
+      <!-- Original set -->
+      <div class="svc-carousel-item grad-1"></div>
+      <div class="svc-carousel-item grad-3"></div>
+      <div class="svc-carousel-item grad-5"></div>
+      <div class="svc-carousel-item grad-2"></div>
+      <div class="svc-carousel-item grad-4"></div>
+      <div class="svc-carousel-item grad-1"></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="svc-carousel-item grad-1"></div>
+      <div class="svc-carousel-item grad-3"></div>
+      <div class="svc-carousel-item grad-5"></div>
+      <div class="svc-carousel-item grad-2"></div>
+      <div class="svc-carousel-item grad-4"></div>
+      <div class="svc-carousel-item grad-1"></div>
     </div>
   </div>
 
-  <!-- ⑦ FOOTER -->
+  <!-- ⑧ FOOTER — same as homepage -->
   <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-top">
-        <span class="footer-brand">Citizen North</span>
-        <nav class="footer-nav">
-          <div class="footer-col">
-            <span class="footer-col-title">Work</span>
-            <a href="work.html">Select Projects</a>
-            <a href="work.html">Hotel Photography</a>
-            <a href="work.html">Hotel Videography</a>
-          </div>
-          <div class="footer-col">
-            <span class="footer-col-title">Services</span>
-            <a href="services.html">Photography</a>
-            <a href="services.html">Videography</a>
-            <a href="services.html">Creative Direction</a>
-          </div>
-          <div class="footer-col">
-            <span class="footer-col-title">Company</span>
-            <a href="index.html#clients">Client List</a>
-            <a href="#">About Us</a>
-          </div>
-          <div class="footer-col">
-            <span class="footer-col-title">Connect</span>
-            <a href="index.html#contact">Contact</a>
-            <a href="index.html#contact">Get a Proposal</a>
-          </div>
-        </nav>
+    <div class="footer-info">
+      <div class="footer-socials-col">
+        <a href="https://instagram.com/therollingvan" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://facebook.com/TheRollingVan" target="_blank" rel="noopener">Facebook</a>
       </div>
-      <div class="footer-bottom">
-        <span>© 2025 Citizen North Inc. All rights reserved.</span>
-        <div class="footer-social">
-          <a href="https://instagram.com/therollingvan" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://facebook.com/TheRollingVan" target="_blank" rel="noopener">Facebook</a>
-        </div>
+      <nav class="footer-links-col">
+        <a href="work.html">Work</a>
+        <a href="services.html">Services</a>
+        <a href="#">About</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="footer-legal-col">
         <a href="#">Terms & Conditions</a>
+        <span>© 2025 Citizen North Inc.</span>
       </div>
     </div>
+    <a href="work.html" class="footer-cta">
+      <span class="footer-cta-text">SEE WORK</span>
+      <span class="footer-cta-arrow">→</span>
+    </a>
   </footer>
 
   <script src="script.js"></script>
