@@ -86,8 +86,45 @@ body {
   padding: 0 var(--pad);
   display: flex;
   align-items: center;
-  transition: transform 0.5s var(--ease), background 0.4s ease;
   background: transparent;
+  transition: transform 0.5s var(--ease),
+              background 0.4s ease,
+              top 0.45s var(--ease),
+              left 0.45s var(--ease),
+              right 0.45s var(--ease),
+              border-radius 0.45s var(--ease),
+              padding 0.45s var(--ease),
+              height 0.45s var(--ease);
+}
+
+/* ── Floating pill — appears when scrolling up ── */
+.header.is-floating {
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  height: 6rem;
+  border-radius: 1rem;
+  background: rgba(18,18,18,0.97) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0 2.5rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+}
+/* Hide the bottom border line in floating mode */
+.header.is-floating::after { display: none; }
+
+/* Always white text in floating mode regardless of page theme */
+.header.is-floating .logo,
+.header.is-floating .nav-toggle,
+.header.is-floating .nav-toggle-plus,
+.header.is-floating .nav-toggle-label { color: #fff !important; }
+
+/* Fade out marquee/pill in floating mode — too cluttered */
+.header.is-floating .header-marquee,
+.header.is-floating .header-page-pill {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 /* Bottom border — same 1px style as nav hover underline, with side padding */
 .header::after {

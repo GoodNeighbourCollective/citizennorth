@@ -66,12 +66,27 @@
   let lastScrollY = 0, ticking = false;
 
   function handleScroll() {
-    const y = window.scrollY;
+    const y        = window.scrollY;
+    const scrollUp = y < lastScrollY;
+    const pastHero = y > window.innerHeight * 0.4;
+
     if (header) {
-      // Hide on scroll down past 120px
-      header.classList.toggle('is-hidden', y > lastScrollY && y > 120);
-      // Add glass bg once scrolled past hero so text stays readable on white
-      header.classList.toggle('is-scrolled', y > (window.innerHeight * 0.75));
+      if (y < 80) {
+        // Back near the top — restore normal transparent header
+        header.classList.remove('is-hidden', 'is-floating', 'is-scrolled');
+      } else if (scrollUp && pastHero) {
+        // Scrolling UP past hero — show the floating pill
+        header.classList.remove('is-hidden');
+        header.classList.add('is-floating');
+      } else if (!scrollUp) {
+        // Scrolling DOWN — hide and drop floating pill
+        header.classList.add('is-hidden');
+        header.classList.remove('is-floating');
+      }
+      // Standard glass bg (used when floating is NOT active)
+      if (!header.classList.contains('is-floating')) {
+        header.classList.toggle('is-scrolled', y > window.innerHeight * 0.75);
+      }
     }
     lastScrollY = y;
     ticking = false;
