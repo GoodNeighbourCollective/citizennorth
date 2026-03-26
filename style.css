@@ -1219,6 +1219,7 @@ body.page-light .header:not(.is-scrolled) .header-page-pill {
 .svc-text-hero {
   background: #fff;
   padding: 14rem var(--pad) 8rem;
+  text-align: center;
 }
 .svc-text-hero-title {
   font-family: var(--f-display);
