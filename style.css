@@ -1756,13 +1756,13 @@ body.page-black:not(.nav-is-open) .header:not(.is-scrolled) .header-page-pill {
 
 .gallery-grid {
   column-count: 2;
-  column-gap: 1rem;
+  column-gap: 2rem;
   padding: 0 var(--pad) var(--gap);
   background: #fff;
 }
 .gallery-item {
   break-inside: avoid;
-  margin: 0 0 1rem;
+  margin: 0 0 2rem;
   display: block;
 }
 .gallery-img {
@@ -1770,10 +1770,10 @@ body.page-black:not(.nav-is-open) .header:not(.is-scrolled) .header-page-pill {
   width: 100%;
   height: auto;
   cursor: zoom-in;
-  border-radius: 0.4rem;
-  transition: opacity 0.25s ease, transform 0.35s var(--ease);
+  border-radius: 0;
+  transition: opacity 0.25s ease;
 }
-.gallery-img:hover { opacity: 0.88; transform: scale(1.008); }
+.gallery-img:hover { opacity: 0.85; }
 
 /* ── Lightbox ── */
 .lb-overlay {
