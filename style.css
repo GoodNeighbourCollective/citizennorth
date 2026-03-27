@@ -1047,10 +1047,9 @@ body {
   border-color: #1a1a1a;
   color: #fff;
 }
-/* Hospitality link — same pill style, slightly warmer to signal it navigates away */
+/* Hospitality link — same pill style, no underline */
 .work-filter--link {
   text-decoration: none;
-  border-style: dashed;
 }
 .work-filter-count {
   display: none;
