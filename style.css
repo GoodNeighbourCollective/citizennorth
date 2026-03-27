@@ -147,11 +147,11 @@ body {
 
 /* Menu toggle stays right (flex handles it) */
 
-/* Logo — larger */
+/* Logo */
 .logo {
   font-family: var(--f-display);
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 1.9rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--white);
@@ -239,7 +239,7 @@ body {
 .nav-toggle-plus {
   font-family: var(--f-display);
   font-weight: 300;
-  font-size: 2.4rem;
+  font-size: 1.9rem;
   line-height: 1;
   display: inline-block;
   transition: transform 0.45s var(--ease);
@@ -250,7 +250,7 @@ body {
 .nav-toggle-label {
   font-family: var(--f-display);
   font-weight: 700;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   line-height: 1;
