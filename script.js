@@ -297,4 +297,77 @@
     });
   });
 
+  /* ──────────────────────────────────────────────────────────
+     GALLERY LIGHTBOX
+     Works on any page that has .gallery-img elements.
+  ────────────────────────────────────────────────────────── */
+  const lbOverlay = qs('#lbOverlay');
+  if (lbOverlay) {
+    const lbImg     = qs('#lbImg');
+    const lbCounter = qs('#lbCounter');
+    const lbClose   = qs('#lbClose');
+    const lbPrev    = qs('#lbPrev');
+    const lbNext    = qs('#lbNext');
+
+    let images  = [];
+    let current = 0;
+
+    function collectImages() {
+      images = Array.from(qsa('.gallery-img'));
+    }
+
+    function showImage(idx) {
+      if (!images.length) return;
+      current = ((idx % images.length) + images.length) % images.length;
+      const el  = images[current];
+      const src = el.dataset.full || el.src;
+      lbImg.classList.add('lb-loading');
+      const tmp = new Image();
+      tmp.onload = () => {
+        lbImg.src = src;
+        lbImg.alt = el.alt;
+        lbImg.classList.remove('lb-loading');
+      };
+      tmp.src = src;
+      lbCounter.textContent = (current + 1) + ' / ' + images.length;
+    }
+
+    function openLightbox(idx) {
+      collectImages();
+      showImage(idx);
+      lbOverlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lbOverlay.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    // Open on image click
+    document.addEventListener('click', (e) => {
+      const img = e.target.closest('.gallery-img');
+      if (!img) return;
+      collectImages();
+      openLightbox(images.indexOf(img));
+    });
+
+    lbClose.addEventListener('click', closeLightbox);
+    lbPrev.addEventListener('click',  () => showImage(current - 1));
+    lbNext.addEventListener('click',  () => showImage(current + 1));
+
+    // Click backdrop to close
+    lbOverlay.addEventListener('click', (e) => {
+      if (e.target === lbOverlay) closeLightbox();
+    });
+
+    // Keyboard — arrows to navigate, Escape to close
+    document.addEventListener('keydown', (e) => {
+      if (!lbOverlay.classList.contains('is-open')) return;
+      if (e.key === 'ArrowLeft')  showImage(current - 1);
+      if (e.key === 'ArrowRight') showImage(current + 1);
+      if (e.key === 'Escape')     closeLightbox();
+    });
+  }
+
 })();

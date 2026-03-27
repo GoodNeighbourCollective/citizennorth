@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospitality Portfolio — Citizen North</title>
+  <meta name="description" content="A curated portfolio of luxury hospitality photography by Citizen North — hotels, resorts, and destination brands.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Cormorant+Garamond:ital,wght@0,400;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-light page-black">
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor">
+    <span class="cursor-label">View</span>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lb-overlay" id="lbOverlay" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lb-close" id="lbClose" aria-label="Close">&#x2715;</button>
+    <button class="lb-prev" id="lbPrev" aria-label="Previous image">&#8592;</button>
+    <button class="lb-next" id="lbNext" aria-label="Next image">&#8594;</button>
+    <div class="lb-img-wrap">
+      <img class="lb-img" id="lbImg" src="" alt="">
+    </div>
+    <div class="lb-counter" id="lbCounter"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo" id="logo">Citizen North</a>
+      <div class="header-page-pill">Hospitality Portfolio</div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span class="nav-toggle-plus">+</span>
+        <span class="nav-toggle-label">Menu</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Nav Overlay -->
+  <nav class="nav-overlay" id="navOverlay">
+    <div class="nav-overlay-inner">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <div class="nav-link-clip">
+            <a href="work.html" class="nav-link" data-close-nav>Select Work</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="nav-link-clip">
+            <a href="hospitality.html" class="nav-link" data-close-nav>Portfolio</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="nav-link-clip">
+            <a href="services.html" class="nav-link" data-close-nav>Services</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="nav-link-clip">
+            <a href="index.html#clients" class="nav-link" data-close-nav>Clients</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="nav-link-clip">
+            <a href="index.html#contact" class="nav-link" data-close-nav>Contact</a>
+          </div>
+        </li>
+      </ul>
+      <div class="nav-footer">
+        <span>Available for projects worldwide</span>
+        <div class="nav-socials">
+          <a href="https://instagram.com/therollingvan" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://facebook.com/TheRollingVan" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="work-hero">
+    <h1 class="work-hero-title">
+      <span class="split-line"><span class="split-word">Hospitality</span></span>
+      <span class="split-line"><span class="split-word">Portfolio</span></span>
+    </h1>
+    <p class="work-hero-sub">A curated collection of luxury hotel and resort photography. Click any image to explore in full, then navigate through the collection with arrow keys or swipe.</p>
+  </section>
+
+  <!-- ============================================================
+       GALLERY GRID — CSS columns so each image keeps its own
+       aspect ratio naturally. To add your own images, replace the
+       src attribute on each <img> tag with your file path or URL.
+       Add or remove <figure> blocks as needed.
+  ============================================================ -->
+  <div class="gallery-grid">
+
+    <!-- Row feel: landscape / portrait / landscape / portrait alternating -->
+
+    <figure class="gallery-item">
+      <img
+        class="gallery-img"
+        src="https://picsum.photos/seed/cn-h1/1200/800"
+        data-full="https://picsum.photos/seed/cn-h1/2400/1600"
+        alt="Mountain resort exterior — Citizen North"
+        loading="lazy">
+    </figure>
+
+    <figure class="gallery-item">
+      <img
+        class="gallery-img"
+        src="https://picsum.photos/seed/cn-h2/800/1100"
+        data-full="https://picsum.photos/seed/cn-h2/1600/2200"
+        alt="Hotel suite interior — Citizen North"
+        loading="lazy">
+    </figure>
+
+    <figure class="gallery-item">
+      <img
+        class="gallery-img"
+        src="https://picsum.photos/seed/cn-h3/800/1050"
+        data-full="https://picsum.photos/seed/cn-h3/1600/2100"
+        alt="Resort pool at dusk — Citizen North"
+        loading="lazy">
+    </figure>
+
+    <figure class="gallery-item">
+      <img
+        class="gallery-img"
+        src="https://picsum.photos/seed/cn-h4/1200/800"
+        data-full="https://picsum.photos/seed/cn-h4/2400/1600"
+        alt="Hotel lobby architecture — Citizen North"
+        loading="lazy">
+    </figure>
+
+    <figure class="gallery-item">
+      <img
+        class="gallery-img"
+        src="https://picsum.photos/seed/cn-h5/1200/900"
+        data-full="https://picsum.photos/seed/cn-h5/2400/1800"
+        alt="Luxury dining room — Citizen North"
+        loading="lazy">
+    </figure>
+
+    <figure class="gallery-item">
+      <img
+        class="gallery-img"
+        src="https://picsum.photos/seed/cn-h6/800/1100"
+        data-full="https://picsum.photos/seed/cn-h6/1600/2200"
+        alt="Spa treatment room — Citizen North"
+        loading="lazy">
+    </figure>
+
+    <figure class="gallery-item">
+      <img
+        class="gallery-img"
+        src="https://picsum.photos/seed/cn-h7/1200/750"
+        data-full="https://picsum.photos/seed/cn-h7/2400/1500"
+        alt="Aerial resort view — Citizen North"
+        loading="lazy">
+    </figure>
+
+    <figure class="gallery-item">
+      <img
+        class="gallery-img"
+        src="https://picsum.photos/seed/cn-h8/800/1000"
+        data-full="https://picsum.photos/seed/cn-h8/1600/2000"
+        alt="Guest bedroom — Citizen North"
+        loading="lazy">
+    </figure>
+
+    <figure class="gallery-item">
+      <img
+        class="gallery-img"
+        src="https://picsum.photos/seed/cn-h9/800/1100"
+        data-full="https://picsum.photos/seed/cn-h9/1600/2200"
+        alt="Hotel bar and lounge — Citizen North"
+        loading="lazy">
+    </figure>
+
+    <figure class="gallery-item">
+      <img
+        class="gallery-img"
+        src="https://picsum.photos/seed/cn-h10/1200/850"
+        data-full="https://picsum.photos/seed/cn-h10/2400/1700"
+        alt="Terrace and outdoor seating — Citizen North"
+        loading="lazy">
+    </figure>
+
+    <figure class="gallery-item">
+      <img
+        class="gallery-img"
+        src="https://picsum.photos/seed/cn-h11/1200/800"
+        data-full="https://picsum.photos/seed/cn-h11/2400/1600"
+        alt="Mountain view from chalet — Citizen North"
+        loading="lazy">
+    </figure>
+
+    <figure class="gallery-item">
+      <img
+        class="gallery-img"
+        src="https://picsum.photos/seed/cn-h12/800/1050"
+        data-full="https://picsum.photos/seed/cn-h12/1600/2100"
+        alt="Bathroom detail — Citizen North"
+        loading="lazy">
+    </figure>
+
+    <figure class="gallery-item">
+      <img
+        class="gallery-img"
+        src="https://picsum.photos/seed/cn-h13/1200/900"
+        data-full="https://picsum.photos/seed/cn-h13/2400/1800"
+        alt="Ski-in ski-out resort — Citizen North"
+        loading="lazy">
+    </figure>
+
+    <figure class="gallery-item">
+      <img
+        class="gallery-img"
+        src="https://picsum.photos/seed/cn-h14/800/1000"
+        data-full="https://picsum.photos/seed/cn-h14/1600/2000"
+        alt="Lifestyle moment in resort — Citizen North"
+        loading="lazy">
+    </figure>
+
+    <figure class="gallery-item">
+      <img
+        class="gallery-img"
+        src="https://picsum.photos/seed/cn-h15/1200/800"
+        data-full="https://picsum.photos/seed/cn-h15/2400/1600"
+        alt="Outdoor pool with mountain backdrop — Citizen North"
+        loading="lazy">
+    </figure>
+
+    <figure class="gallery-item">
+      <img
+        class="gallery-img"
+        src="https://picsum.photos/seed/cn-h16/800/1150"
+        data-full="https://picsum.photos/seed/cn-h16/1600/2300"
+        alt="Fireplace lounge — Citizen North"
+        loading="lazy">
+    </figure>
+
+    <figure class="gallery-item">
+      <img
+        class="gallery-img"
+        src="https://picsum.photos/seed/cn-h17/1200/780"
+        data-full="https://picsum.photos/seed/cn-h17/2400/1560"
+        alt="Hotel facade at night — Citizen North"
+        loading="lazy">
+    </figure>
+
+    <figure class="gallery-item">
+      <img
+        class="gallery-img"
+        src="https://picsum.photos/seed/cn-h18/800/1050"
+        data-full="https://picsum.photos/seed/cn-h18/1600/2100"
+        alt="Chef's table dining — Citizen North"
+        loading="lazy">
+    </figure>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-info">
+      <div class="footer-socials-col">
+        <a href="https://instagram.com/therollingvan" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://facebook.com/TheRollingVan" target="_blank" rel="noopener">Facebook</a>
+      </div>
+      <nav class="footer-links-col">
+        <a href="work.html">Work</a>
+        <a href="hospitality.html">Portfolio</a>
+        <a href="services.html">Services</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="footer-legal-col">
+        <a href="#">Terms &amp; Conditions</a>
+        <span>© 2025 Citizen North Inc.</span>
+      </div>
+    </div>
+    <a href="work.html" class="footer-cta">
+      <span class="footer-cta-text">SEE WORK</span>
+      <span class="footer-cta-arrow">→</span>
+    </a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
