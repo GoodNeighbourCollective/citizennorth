@@ -659,13 +659,16 @@ body {
   top: 7rem;
   align-self: start;
   height: calc(100vh - 7rem);
-  position: relative;
   overflow: hidden;
+  padding: 2rem var(--pad) 2rem 2rem;
 }
 
 .svc-img {
   position: absolute;
-  inset: 2rem;
+  top: 2rem;
+  left: 2rem;
+  right: var(--pad);
+  bottom: 2rem;
   border-radius: 0.8rem;
   background-size: cover;
   background-position: center;
@@ -1814,8 +1817,9 @@ body.page-black:not(.nav-is-open) .header:not(.is-scrolled) .header-page-pill {
     height: 50vw;
     min-height: 26rem;
     max-height: 40rem;
+    padding: 0;
   }
-  .svc-img { inset: 0; border-radius: 0.6rem; }
+  .svc-img { top: 0; left: 0; right: 0; bottom: 0; border-radius: 0.6rem; }
   .service-name { font-size: clamp(5rem, 12vw, 10rem); }
 
   .work-page-grid { grid-template-columns: 1fr; }
