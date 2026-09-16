@@ -531,6 +531,9 @@ body {
   overflow: hidden;
   aspect-ratio: 3/2;
   position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .work-item:nth-child(1) .work-thumb,
 .work-item:nth-child(2) .work-thumb { aspect-ratio: 16/10; }
