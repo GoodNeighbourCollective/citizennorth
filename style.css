@@ -659,15 +659,17 @@ body {
   top: 7rem;
   align-self: start;
   height: calc(100vh - 7rem);
-  padding: 2rem var(--pad) 2rem 2rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .svc-img {
   position: absolute;
-  inset: 2rem var(--pad) 2rem 2rem;
+  inset: 2rem;
   border-radius: 0.8rem;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   opacity: 0;
   transform: scale(1.04);
   transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
@@ -1694,7 +1696,7 @@ body.page-black:not(.nav-is-open) .header:not(.is-scrolled) .header-page-pill {
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1100px) {
-  .services-layout { grid-template-columns: 1fr 34%; }
+  .services-layout { grid-template-columns: 1fr 38%; }
   .services-img-panel { height: 40rem; }
 }
 /* ============================================================
@@ -1806,7 +1808,14 @@ body.page-black:not(.nav-is-open) .header:not(.is-scrolled) .header-page-pill {
   .work-item:nth-child(1) { grid-column: 1 / -1; }
 
   .services-layout { grid-template-columns: 1fr; }
-  .services-img-panel { display: none; }
+  .services-img-panel {
+    position: relative;
+    top: auto;
+    height: 50vw;
+    min-height: 26rem;
+    max-height: 40rem;
+  }
+  .svc-img { inset: 0; border-radius: 0.6rem; }
   .service-name { font-size: clamp(5rem, 12vw, 10rem); }
 
   .work-page-grid { grid-template-columns: 1fr; }
