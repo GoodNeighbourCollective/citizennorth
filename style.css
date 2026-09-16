@@ -666,6 +666,8 @@ body {
   position: absolute;
   inset: 2rem var(--pad) 2rem 2rem;
   border-radius: 0.8rem;
+  background-size: cover;
+  background-position: center;
   opacity: 0;
   transform: scale(1.04);
   transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
