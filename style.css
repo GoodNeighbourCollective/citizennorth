@@ -1127,7 +1127,10 @@ body {
 }
 .project-hero-bg {
   position: absolute; inset: 0;
-  background: linear-gradient(145deg, #0a1e10 0%, #1a4a28 50%, #050f08 100%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #0a1e10;
   z-index: 0;
 }
 .project-hero-bg::after {
