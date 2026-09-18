@@ -32,9 +32,9 @@ ul, ol { list-style: none; }
   --cn-ink-on-gold:  #22332F;
 
   /* Typography */
-  --f-display: 'Neue Montreal', Helvetica, sans-serif;
-  --f-serif:   'Editorial New', Georgia, serif;
-  --f-body:    'Neue Montreal Text', 'Neue Montreal', Helvetica, sans-serif;
+  --f-display: 'Neue Montreal', 'Plus Jakarta Sans', Helvetica, sans-serif;
+  --f-serif:   'Editorial New', 'Cormorant Garamond', Georgia, serif;
+  --f-body:    'Neue Montreal Text', 'Neue Montreal', 'Plus Jakarta Sans', Helvetica, sans-serif;
 
   /* Motion */
   --ease:    cubic-bezier(.16, .8, .24, 1);
@@ -1495,7 +1495,7 @@ body.page-black:not(.nav-is-open) .header:not(.is-scrolled) .header-page-pill {
   color: var(--cn-cream);
   border-radius: 10rem;
   padding: 0.55rem 1.5rem;
-  font-family: var(--f-display);
+  font-family: var(--f-body);
   font-size: 1.05rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1552,7 +1552,7 @@ body.page-black:not(.nav-is-open) .header:not(.is-scrolled) .header-page-pill {
   border: 1px solid var(--rule-on-teal);
   border-radius: 10rem;
   padding: 0.55rem 1.4rem;
-  font-family: var(--f-display);
+  font-family: var(--f-body);
   font-size: 1.05rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
