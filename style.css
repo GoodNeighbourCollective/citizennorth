@@ -139,10 +139,10 @@ body {
   left: var(--pad);
   right: var(--pad);
   height: 1px;
-  background: var(--rule-on-teal);
-}
-.header.is-scrolled::after {
   background: var(--rule-on-paper);
+}
+body.page-home .header:not(.is-scrolled)::after {
+  background: var(--rule-on-teal);
 }
 .header.is-hidden { transform: translateY(-100%); }
 .header.is-scrolled {
@@ -165,14 +165,14 @@ body {
   font-size: 1.9rem;
   letter-spacing: 0.40em;
   text-transform: uppercase;
-  color: var(--cn-cream);
+  color: var(--cn-ink);
   position: relative;
   z-index: 600;
   transition: color 0.4s ease;
   flex-shrink: 0;
 }
-.header.is-scrolled .logo,
 .logo.nav-is-open { color: var(--cn-ink); }
+body.page-home .header:not(.is-scrolled) .logo { color: var(--cn-cream); }
 
 /* ============================================================
    HEADER MARQUEE — absolutely centred, 20vw wide
@@ -217,11 +217,17 @@ body {
   color: var(--cn-ink-muted);
   letter-spacing: 0.02em;
 }
+body.page-home .header:not(.is-scrolled) .header-marquee-track span {
+  color: rgba(238,234,223,0.6);
+}
 
 .marquee-dot {
   color: var(--cn-ink-muted) !important;
   opacity: 0.4;
   font-size: 1.1rem !important;
+}
+body.page-home .header:not(.is-scrolled) .marquee-dot {
+  color: rgba(238,234,223,0.4) !important;
 }
 
 @keyframes marqueeScroll {
@@ -242,12 +248,12 @@ body {
   padding: 0.4rem 0;
   background: none;
   border: none;
-  color: var(--cn-cream);
+  color: var(--cn-ink);
   transition: color 0.3s ease;
   justify-self: end;
 }
-.header.is-scrolled .nav-toggle,
 .nav-toggle.nav-is-open { color: var(--cn-ink); }
+body.page-home .header:not(.is-scrolled) .nav-toggle { color: var(--cn-cream); }
 
 .nav-toggle-plus {
   font-family: var(--f-display);
@@ -1996,7 +2002,6 @@ body.page-black:not(.nav-is-open) .header:not(.is-scrolled) .header-page-pill {
 .fv2-logo-row {
   text-align: center;
   padding: 3rem 5vw 2.5rem;
-  overflow: visible;
 }
 .fv2-logo-text {
   font-family: var(--f-display);
@@ -2005,9 +2010,8 @@ body.page-black:not(.nav-is-open) .header:not(.is-scrolled) .header-page-pill {
   text-transform: uppercase;
   letter-spacing: -0.03em;
   color: var(--rule-on-teal);
-  line-height: 0.9;
+  line-height: 1;
   user-select: none;
-  overflow: visible;
 }
 
 .fv2-bottom {
