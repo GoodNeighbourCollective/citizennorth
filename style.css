@@ -390,7 +390,7 @@ body.page-home .header:not(.is-scrolled) .nav-toggle { color: var(--cn-cream); }
   font-family: var(--f-serif);
   font-weight: 200;
   font-size: clamp(9rem, 17vw, 24rem);
-  line-height: 0.85;
+  line-height: 0.95;
   letter-spacing: -0.02em;
   color: var(--cn-cream);
   margin-bottom: 3.5rem;
