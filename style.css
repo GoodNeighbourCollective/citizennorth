@@ -1257,6 +1257,7 @@ body.page-home .header:not(.is-scrolled) .nav-toggle { color: var(--cn-cream); }
   font-size: 1.7rem;
   color: var(--cn-ink-muted);
   line-height: 1.7;
+  max-width: 52rem;
 }
 .project-img-full {
   margin: 0 0 2rem;
@@ -1291,6 +1292,9 @@ body.page-home .header:not(.is-scrolled) .nav-toggle { color: var(--cn-cream); }
   color: var(--cn-ochre);
   font-family: var(--f-display);
   padding-top: 0.4rem;
+}
+.project-section-content {
+  max-width: 72rem;
 }
 .project-section-content h3 {
   font-family: var(--f-display);
