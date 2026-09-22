@@ -617,18 +617,20 @@ body.page-home .header:not(.is-scrolled) .nav-toggle { color: var(--cn-cream); }
 .services {
   background: var(--cn-teal);
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 68% 32%;
+  grid-template-rows: auto 1fr;
   padding: 5rem 0 0;
 }
 
 .services-header {
+  grid-column: 1;
+  grid-row: 1;
   padding: 0 var(--pad) 4rem;
   max-width: 60rem;
   opacity: 0;
   transform: translateY(3rem);
   transition: opacity 0.7s ease, transform 0.7s var(--ease);
-  flex-shrink: 0;
 }
 .services-header.is-revealed { opacity: 1; transform: translateY(0); }
 
@@ -653,14 +655,9 @@ body.page-home .header:not(.is-scrolled) .nav-toggle { color: var(--cn-cream); }
   color: var(--cn-cream);
 }
 
-.services-layout {
-  display: grid;
-  grid-template-columns: 68% 32%;
-  align-items: stretch;
-  flex: 1;
-}
-
 .services-list {
+  grid-column: 1;
+  grid-row: 2;
   border-top: 1px solid var(--rule-on-teal);
   display: flex;
   flex-direction: column;
@@ -697,6 +694,8 @@ body.page-home .header:not(.is-scrolled) .nav-toggle { color: var(--cn-cream); }
 .service-row:hover .service-name { color: var(--cn-gold); }
 
 .services-img-panel {
+  grid-column: 2;
+  grid-row: 1 / -1;
   position: sticky;
   top: 7rem;
   align-self: start;
@@ -707,10 +706,10 @@ body.page-home .header:not(.is-scrolled) .nav-toggle { color: var(--cn-cream); }
 
 .svc-img {
   position: absolute;
-  top: 10%;
+  top: var(--pad);
   left: 2rem;
   right: var(--pad);
-  bottom: 10%;
+  bottom: var(--pad);
   border-radius: 0.8rem;
   background-size: cover;
   background-position: center;
@@ -1759,7 +1758,7 @@ body.page-black:not(.nav-is-open) .header:not(.is-scrolled) .header-page-pill {
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1100px) {
-  .services-layout { grid-template-columns: 1fr 38%; }
+  .services { grid-template-columns: 1fr 38%; }
   .services-img-panel { height: 40rem; }
 }
 /* ============================================================
@@ -1870,8 +1869,10 @@ body.page-black:not(.nav-is-open) .header:not(.is-scrolled) .header-page-pill {
   .work-item:nth-child(n) { grid-column: auto; }
   .work-item:nth-child(1) { grid-column: 1 / -1; }
 
-  .services-layout { grid-template-columns: 1fr; }
+  .services { grid-template-columns: 1fr; grid-template-rows: auto auto auto; }
   .services-img-panel {
+    grid-column: 1;
+    grid-row: 3;
     position: relative;
     top: auto;
     height: 50vw;
