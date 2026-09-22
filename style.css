@@ -1236,15 +1236,15 @@ body.page-home .header:not(.is-scrolled) .nav-toggle { color: var(--cn-cream); }
   font-family: var(--f-body);
   font-weight: 400;
   font-size: 1.6rem;
-  color: var(--cn-ink-soft);
+  color: var(--cn-ink);
 }
-.project-body { padding: 4rem var(--pad); }
+.project-body { padding: 3rem var(--pad); }
 .project-intro {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  margin-bottom: 4rem;
-  padding-bottom: 4rem;
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
   border-bottom: 1px solid var(--rule-on-paper);
 }
 .project-intro-heading {
