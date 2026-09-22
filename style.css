@@ -1240,7 +1240,10 @@ body.page-home .header:not(.is-scrolled) .nav-toggle { color: var(--cn-cream); }
 }
 .project-body { padding: 3rem var(--pad); }
 .project-intro {
-  max-width: 72rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: end;
   margin-bottom: 3rem;
 }
 .project-intro-heading {
@@ -1249,13 +1252,11 @@ body.page-home .header:not(.is-scrolled) .nav-toggle { color: var(--cn-cream); }
   font-size: clamp(3rem, 4vw, 5rem);
   line-height: 1.1;
   letter-spacing: -0.03em;
-  margin-bottom: 1.5rem;
 }
 .project-intro-text {
   font-size: 1.7rem;
   color: var(--cn-ink-muted);
   line-height: 1.7;
-  max-width: 60rem;
 }
 .project-img-full {
   margin: 0 0 2rem;
@@ -1275,7 +1276,9 @@ body.page-home .header:not(.is-scrolled) .nav-toggle { color: var(--cn-cream); }
   aspect-ratio: 4/3;
 }
 .project-text-section {
-  max-width: 72rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem 4rem;
   padding: 3rem 0;
   border-top: 1px solid var(--rule-on-paper);
   margin-bottom: 2rem;
@@ -1287,7 +1290,7 @@ body.page-home .header:not(.is-scrolled) .nav-toggle { color: var(--cn-cream); }
   text-transform: uppercase;
   color: var(--cn-ochre);
   font-family: var(--f-display);
-  margin-bottom: 1.5rem;
+  padding-top: 0.4rem;
 }
 .project-section-content h3 {
   font-family: var(--f-display);
@@ -1308,7 +1311,6 @@ body.page-home .header:not(.is-scrolled) .nav-toggle { color: var(--cn-cream); }
   color: var(--cn-ink-soft);
   line-height: 1.7;
   margin-bottom: 1rem;
-  max-width: 60rem;
 }
 .project-quote { padding: var(--gap) var(--pad); background: var(--cn-teal-deep); }
 .project-quote blockquote {
@@ -1883,7 +1885,9 @@ body.page-black:not(.nav-is-open) .header:not(.is-scrolled) .header-page-pill {
   .work-page-grid { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr; }
   .footer-nav { grid-template-columns: repeat(2, 1fr); }
+  .project-intro { grid-template-columns: 1fr; gap: 2rem; }
   .project-img-duo { grid-template-columns: 1fr; }
+  .project-text-section { grid-template-columns: 1fr; }
   .project-meta { flex-wrap: wrap; gap: 3rem; }
 
   .svc-text-hero { padding: 12rem var(--pad) 6rem; }
