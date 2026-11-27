@@ -1,0 +1,7 @@
+{
+  "name": "citizen-north-website",
+  "private": true,
+  "scripts": {
+    "layout": "node tools/layout-server.mjs"
+  }
+}

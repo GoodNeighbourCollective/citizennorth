@@ -1,0 +1,65 @@
+/* Citizen North — layout editor UI (local only, never deployed) */
+.le-on .js-reveal, .le-on .js-reveal-fade, .le-on .js-reveal-up, .le-on .work-item,
+.le-on .work-header, .le-on .intro-text, .le-on .service-row, .le-on .services-header,
+.le-on .clients-list-wrap li { opacity: 1 !important; transform: none !important; }
+.le-on body { padding-bottom: 72px; }
+
+.le-bar {
+  position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 10000;
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding: 10px 12px 10px 18px; border-radius: 10px;
+  background: #1F1F1D; color: #EEEADF; font: 500 14px/1.3 'Hanken Grotesk', system-ui, sans-serif;
+  box-shadow: 0 8px 30px rgba(0,0,0,.25);
+}
+.le-hint { color: rgba(238,234,223,.6); font-weight: 400; }
+.le-status { margin-left: auto; color: #D9BE86; }
+.le-btn {
+  min-height: 36px; padding: 0 14px; border-radius: 6px; cursor: pointer;
+  background: rgba(238,234,223,.1); color: inherit; font: inherit; border: 0;
+}
+.le-btn:hover { background: rgba(238,234,223,.2); }
+.le-btn--primary { background: #D9BE86; color: #22332F; }
+.le-btn--primary:hover { background: #E6CE9C; }
+.le-btn:disabled { opacity: .4; cursor: default; }
+
+.le-block { position: relative; outline: 1px dashed rgba(122,98,49,.45); outline-offset: 4px; cursor: grab; }
+.le-block:hover { outline: 2px solid #A8894F; }
+.le-dragging { opacity: .35; }
+.le-before { box-shadow: -6px 0 0 #C83C2B; }
+.le-after  { box-shadow: 6px 0 0 #C83C2B; }
+.lb-text.le-before { box-shadow: 0 -6px 0 #C83C2B; }
+.lb-text.le-after  { box-shadow: 0 6px 0 #C83C2B; }
+
+.le-ctl {
+  position: absolute; top: 10px; left: 10px; z-index: 5; display: flex; gap: 4px; align-items: center;
+  padding: 4px; border-radius: 8px; background: rgba(31,31,29,.86);
+  font: 500 12px/1 'Hanken Grotesk', system-ui, sans-serif; color: #EEEADF;
+  opacity: 0; transition: opacity .15s;
+}
+.le-block:hover > .le-ctl, .le-block:focus-within > .le-ctl { opacity: 1; }
+.le-grip { padding: 0 6px; font-size: 16px; cursor: grab; }
+.le-ctl button {
+  min-width: 30px; min-height: 30px; padding: 0 8px; border: 0; border-radius: 5px; cursor: pointer;
+  background: rgba(238,234,223,.12); color: inherit; font: inherit;
+}
+.le-ctl button:hover { background: rgba(238,234,223,.25); }
+.le-ctl button[aria-pressed="true"] { background: #D9BE86; color: #22332F; }
+.le-ctl [data-remove]:hover { background: #C83C2B; }
+
+.le-tray {
+  position: fixed; top: 16px; right: 16px; bottom: 84px; width: min(340px, calc(100vw - 32px)); z-index: 10000;
+  display: flex; flex-direction: column; border-radius: 10px; overflow: hidden;
+  background: #F4F2EC; color: #1F1F1D; box-shadow: 0 8px 30px rgba(0,0,0,.25);
+  font: 400 14px/1.4 'Hanken Grotesk', system-ui, sans-serif;
+  transform: translateX(calc(100% + 24px)); transition: transform .3s cubic-bezier(.16,.8,.24,1);
+}
+.le-tray.is-open { transform: none; }
+.le-tray-head { display: flex; justify-content: space-between; align-items: center; padding: 12px 12px 12px 16px; background: #1F1F1D; color: #EEEADF; }
+.le-tray-body { overflow: auto; padding: 12px 16px 16px; display: flex; flex-direction: column; gap: 16px; }
+.le-tray h4 { font-size: 14px; font-weight: 600; margin: 0 0 8px; }
+.le-tray h4 span { display: block; font-weight: 400; color: #6A645B; font-size: 13px; }
+.le-tray section { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.le-tray section h4, .le-tray .le-empty { grid-column: 1 / -1; }
+.le-thumb { all: unset; cursor: grab; display: flex; flex-direction: column; gap: 4px; font-size: 11px; color: #6A645B; word-break: break-all; }
+.le-thumb img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 4px; }
+.le-thumb:hover img, .le-thumb:focus-visible img { outline: 2px solid #A8894F; outline-offset: 2px; }
