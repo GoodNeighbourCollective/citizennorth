@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="referrer" content="no-referrer">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Citizen North — Luxury Hospitality Photography & Film</title>
   <meta name="description" content="Citizen North creates elevated visual content for luxury hospitality brands worldwide — photography, videography, and branded campaigns.">
@@ -26,8 +27,10 @@
     "address": [
       { "@type": "PostalAddress", "addressLocality": "Los Angeles", "addressCountry": "US" },
       { "@type": "PostalAddress", "addressLocality": "Toronto", "addressCountry": "CA" },
-      { "@type": "PostalAddress", "addressLocality": "New York", "addressCountry": "US" },
-      { "@type": "PostalAddress", "addressLocality": "Montreal", "addressCountry": "CA" }
+      { "@type": "PostalAddress", "addressLocality": "Montreal", "addressCountry": "CA" },
+      { "@type": "PostalAddress", "addressLocality": "Vancouver", "addressCountry": "CA" },
+      { "@type": "PostalAddress", "addressLocality": "London", "addressCountry": "GB" },
+      { "@type": "PostalAddress", "addressLocality": "Hong Kong", "addressCountry": "HK" }
     ],
     "sameAs": [
       "https://instagram.com/therollingvan",
@@ -39,8 +42,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Cormorant+Garamond:ital,wght@0,400;1,400;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="fonts.css">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="page-home">
@@ -68,7 +70,7 @@
         </div>
       </div>
 
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navOverlay">
         <span class="nav-toggle-plus">+</span>
         <span class="nav-toggle-label">Menu</span>
       </button>
@@ -116,15 +118,19 @@
     <img
       class="hero-img"
       src="https://i.imgur.com/DZwMbo5.jpg"
-      alt="Citizen North — luxury hospitality photography"
+      alt="Infinity pool lined with palms at dusk, Riviera Maya"
     >
     <div class="hero-content">
       <h1 class="hero-heading">
-        <span class="split-line"><span class="split-word">Citizen</span></span>
-        <span class="split-line"><span class="split-word">North</span></span>
+        <span class="split-line"><span class="split-word">Photography and film</span></span>
+        <span class="split-line"><span class="split-word">for luxury hotels</span></span>
       </h1>
       <div class="hero-sub">
-        <p>Capturing the essence of hospitality and tourism through complete, end-to-end visual production</p>
+        <p>Creative direction, stills and motion for hospitality and tourism brands — produced end to end by one team, for over a decade.</p>
+      </div>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn--light">Start a project</a>
+        <a href="work.html" class="btn btn--ghost-light">See the work</a>
       </div>
     </div>
     <div class="hero-meta">
@@ -140,20 +146,32 @@
   <section class="intro">
     <div class="intro-inner">
       <span class="intro-pill">Introduction</span>
-      <p class="intro-text js-reveal">
-        For over a decade, we have collaborated with luxury hospitality brands to craft elevated guest experiences through design. We are an agile, internationally experienced team driven by nuance, restraint, and a deep understanding of atmosphere. We do not impose a house style. Every project is tailored, expressive, and rooted in the identity of the property.
-      </p>
+      <div class="intro-body">
+        <p class="intro-text js-reveal">
+          We have spent more than ten years photographing and filming hotels, resorts and destinations. We don't bring a house style. Each shoot starts from the property — its light, its architecture, the way guests actually move through it.
+        </p>
+        <dl class="intro-facts js-reveal-fade">
+          <div><dt>Based in</dt><dd>Vancouver, Los Angeles, Toronto, Montreal, London, Hong Kong</dd></div>
+          <div><dt>Shooting</dt><dd>Worldwide</dd></div>
+          <div><dt>Disciplines</dt><dd>Architecture, lifestyle, film</dd></div>
+        </dl>
+      </div>
     </div>
   </section>
 
   <!-- Work -->
   <section class="work" id="work">
     <div class="work-header js-reveal-fade">
-      <span class="section-label">Selected Work</span>
+      <div class="section-head">
+        <span class="section-label">Selected Work</span>
+        <h2 class="section-heading">Hotels, resorts and destinations</h2>
+      </div>
       <a href="work.html" class="pill-btn">See All Projects</a>
     </div>
-    <div class="work-grid">
-      <article class="work-item js-reveal-up" style="--delay: 0s">
+    <!-- layout:home-work — arrange with the layout editor (npm run layout). -->
+    <div class="work-grid" data-layout="home-work" data-sizes="full,large,half,medium,third">
+      <!-- block:work-hospitality -->
+      <article class="work-item js-reveal-up" data-block="work-hospitality" data-size="half">
         <a href="hospitality.html" class="work-thumb" style="background-image:url('https://i.imgur.com/FuiokN7.jpg')">
           <div class="work-hover"><span>View Project</span></div>
         </a>
@@ -162,7 +180,8 @@
           <span>Luxury Hotel Photography</span>
         </div>
       </article>
-      <article class="work-item js-reveal-up" style="--delay: 0.1s">
+      <!-- block:work-fairmont -->
+      <article class="work-item js-reveal-up" data-block="work-fairmont" data-size="half">
         <a href="work/fairmont-mayakoba.html" class="work-thumb" style="background-image:url('https://i.imgur.com/2QUGt9Q.jpg')">
           <div class="work-hover"><span>View Project</span></div>
         </a>
@@ -171,7 +190,8 @@
           <span>Editorial Campaign</span>
         </div>
       </article>
-      <article class="work-item js-reveal-up" style="--delay: 0.05s">
+      <!-- block:work-sofitel -->
+      <article class="work-item js-reveal-up" data-block="work-sofitel" data-size="third">
         <div class="work-thumb" style="background-image:url('https://i.imgur.com/QQT6vj7.jpg')">
           <div class="work-hover"><span>View Project</span></div>
         </div>
@@ -180,7 +200,8 @@
           <span>Hotel Photography</span>
         </div>
       </article>
-      <article class="work-item js-reveal-up" style="--delay: 0.15s">
+      <!-- block:work-azur -->
+      <article class="work-item js-reveal-up" data-block="work-azur" data-size="third">
         <div class="work-thumb" style="background-image:url('https://i.imgur.com/MsVsDM2.jpg')">
           <div class="work-hover"><span>View Project</span></div>
         </div>
@@ -189,7 +210,8 @@
           <span>Branded Campaign</span>
         </div>
       </article>
-      <article class="work-item js-reveal-up" style="--delay: 0.25s">
+      <!-- block:work-waldorf -->
+      <article class="work-item js-reveal-up" data-block="work-waldorf" data-size="third">
         <div class="work-thumb" style="background-image:url('https://i.imgur.com/XbYgKIO.jpg')">
           <div class="work-hover"><span>View Project</span></div>
         </div>
@@ -199,6 +221,18 @@
         </div>
       </article>
     </div>
+    <!-- /layout:home-work -->
+  </section>
+
+  <!-- Cinematic break: the photograph develops like a print as it enters (taste-skill moment: picture-develops, film look) -->
+  <section class="cine" aria-labelledby="cine-h">
+    <figure class="cine-photo" data-moment="picture-develops" data-moment-opts='{"look": "film"}'>
+      <img src="images/fairmont-mayakoba/fairmont-mayakoba-riviera-maya-40.jpg" alt="Golden-hour view over the pools and jungle canopy from a Fairmont Mayakoba balcony" loading="lazy">
+    </figure>
+    <div class="cine-type">
+      <h2 id="cine-h" class="cine-heading">Every property<br>has its own light.</h2>
+      <p class="cine-sub">We plan every shoot around it. <a href="work/fairmont-mayakoba.html">Fairmont Mayakoba, Riviera Maya</a></p>
+    </div>
   </section>
 
   <!-- Services -->
@@ -207,6 +241,7 @@
     <!-- Header block: pill + intro text -->
     <div class="services-header js-reveal-fade">
       <span class="services-pill">Core services and sectors</span>
+      <h2 class="section-heading">From brief to final delivery, in-house</h2>
       <div class="services-header-body">
         <p class="services-intro">
           Focused on hospitality and tourism, we provide full end-to-end production, guiding each project from concept and creative direction to final imagery and video. Our work captures the essence of each destination and property with precision and care.
@@ -243,7 +278,10 @@
   <!-- Clients -->
   <section class="clients" id="clients">
     <div class="clients-inner">
-      <span class="clients-pill js-reveal-fade">Selected Clients</span>
+      <div class="section-head clients-head js-reveal-fade">
+        <span class="clients-pill">Selected Clients</span>
+        <h2 class="section-heading">Brands we've worked with</h2>
+      </div>
       <div class="clients-list-wrap js-reveal-fade">
         <ul class="clients-col">
           <li>Club Med</li>
@@ -270,17 +308,59 @@
     </div>
   </section>
 
+  <!-- Worldwide: cities are plain list items — edit, add or remove <li> rows; the map places them by data-lat / data-lon.
+       data-tz is the city's time zone (for the live clock). data-label sets which side the name sits on
+       (left, right, top, bottom) when cities are close together. data-hub on the map is where the lines start. -->
+  <section class="world" id="worldwide" aria-labelledby="world-h">
+    <div class="world-head">
+      <span class="world-pill js-reveal-fade">Where we are</span>
+      <h2 id="world-h" class="section-heading js-reveal">Six cities.<br>One crew on call.</h2>
+      <p class="world-text js-reveal-fade">Photographers, filmmakers and producers in Vancouver, Los Angeles, Toronto, Montreal, London and Hong Kong. Wherever the property is, someone on the team is a short flight away — and on the ground for the right light.</p>
+    </div>
+    <div class="world-map" data-world data-hub="Toronto">
+      <div class="world-canvas">
+        <img class="world-dots" src="images/world-dots.svg" alt="" aria-hidden="true">
+        <svg class="world-lines" viewBox="0 0 1000 377.78" preserveAspectRatio="none" aria-hidden="true"></svg>
+        <ul class="world-cities" aria-label="Where the team is based">
+          <li data-lat="49.28" data-lon="-123.12" data-tz="America/Vancouver"   data-label="top">Vancouver</li>
+          <li data-lat="34.05" data-lon="-118.24" data-tz="America/Los_Angeles" data-label="bottom">Los Angeles</li>
+          <li data-lat="43.65" data-lon="-79.38"  data-tz="America/Toronto"     data-label="bottom">Toronto</li>
+          <li data-lat="45.50" data-lon="-73.57"  data-tz="America/Toronto"     data-label="top" data-label-phone="right">Montreal</li>
+          <li data-lat="51.51" data-lon="-0.13"   data-tz="Europe/London"       data-label="right">London</li>
+          <li data-lat="22.32" data-lon="114.17"  data-tz="Asia/Hong_Kong"      data-label="left">Hong Kong</li>
+        </ul>
+      </div>
+      <button type="button" class="world-pause" aria-pressed="false">Pause</button>
+    </div>
+    <dl class="world-stats">
+      <div><dt>6</dt><dd>cities</dd></div>
+      <div><dt>3</dt><dd>continents — North America, Europe, Asia</dd></div>
+      <div><dt>Worldwide</dt><dd>we travel to wherever the property is</dd></div>
+    </dl>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact-block" id="contact">
+    <span class="contact-pill js-reveal-fade">Contact</span>
+    <h2 class="contact-title js-reveal">Planning a shoot?<br>Tell us about the property.</h2>
+    <div class="contact-side js-reveal-fade">
+      <p>Send the location, rough dates and what you need — stills, film or both.</p>
+      <a href="mailto:aaron@citizennorth.co?subject=New%20project" class="btn btn--dark">Email the studio</a>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="footer-v2">
     <div class="fv2-newsletter">
+      <label for="nl-email" class="fv2-newsletter-label">Monthly newsletter</label>
       <form class="fv2-newsletter-form" onsubmit="return false;">
-        <input type="email" class="fv2-newsletter-input" placeholder="Join our monthly newsletter" />
+        <input id="nl-email" type="email" class="fv2-newsletter-input" placeholder="Email address" autocomplete="email" />
         <button type="submit" class="fv2-newsletter-btn">Subscribe</button>
       </form>
     </div>
     <div class="fv2-columns">
       <div class="fv2-col">
-        <h4 class="fv2-col-title">Services</h4>
+        <h3 class="fv2-col-title">Services</h3>
         <div class="fv2-col-divider"></div>
         <a href="services.html">Architectural</a>
         <a href="services.html">Lifestyle</a>
@@ -289,7 +369,7 @@
         <a href="services.html">Creative Direction</a>
       </div>
       <div class="fv2-col">
-        <h4 class="fv2-col-title">Company</h4>
+        <h3 class="fv2-col-title">Company</h3>
         <div class="fv2-col-divider"></div>
         <a href="work.html">Work</a>
         <a href="services.html">Services</a>
@@ -297,16 +377,18 @@
         <a href="#contact">Contact</a>
       </div>
       <div class="fv2-col">
-        <h4 class="fv2-col-title">Locations</h4>
+        <h3 class="fv2-col-title">Locations</h3>
         <div class="fv2-col-divider"></div>
+        <span>Vancouver</span>
         <span>Los Angeles</span>
         <span>Toronto</span>
-        <span>New York</span>
         <span>Montreal</span>
+        <span>London</span>
+        <span>Hong Kong</span>
         <span>Worldwide</span>
       </div>
       <div class="fv2-col">
-        <h4 class="fv2-col-title">Follow</h4>
+        <h3 class="fv2-col-title">Follow</h3>
         <div class="fv2-col-divider"></div>
         <a href="https://instagram.com/therollingvan" target="_blank" rel="noopener">Instagram</a>
         <a href="https://facebook.com/TheRollingVan" target="_blank" rel="noopener">Facebook</a>
@@ -336,5 +418,7 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="world.js" defer></script>
+  <script type="module" src="assets/moments/moments.js"></script>
 </body>
 </html>
