@@ -126,7 +126,11 @@ const server = http.createServer(async (req, res) => {
     }
 
     let file = inside(url.pathname);
-    if ((await fs.stat(file).catch(() => null))?.isDirectory()) file = path.join(file, 'index.html');
+    if ((await fs.stat(file).catch(() => null))?.isDirectory()) {
+      // folder URLs need a trailing slash so relative links resolve, as on GitHub Pages
+      if (!url.pathname.endsWith('/')) { res.writeHead(301, { Location: url.pathname + '/' + url.search }); return res.end(); }
+      file = path.join(file, 'index.html');
+    }
     const buf = await fs.readFile(file);
     const ext = path.extname(file).toLowerCase();
     if (ext === '.html') {
