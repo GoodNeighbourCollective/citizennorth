@@ -3,7 +3,8 @@
   const layouts = [...document.querySelectorAll('[data-layout]')];
   document.documentElement.classList.add('le-on');
 
-  const page = decodeURIComponent(location.pathname.replace(/^\//, '')) || 'index.html';
+  let page = decodeURIComponent(location.pathname.replace(/^\//, ''));
+  if (!page || page.endsWith('/')) page += 'index.html';   // folder URLs: /work/fairmont-mayakoba/
 
   let dirty = false;
   let dragged = null;

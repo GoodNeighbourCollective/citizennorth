@@ -24,16 +24,19 @@ Open <http://localhost:4321> and go to any page. A dark **Layout mode** bar appe
 **Photo tray** (bottom bar) lists every photo in the page's image folder that isn't on the page yet.
 Click one to add it at the end, or drag it into place. To get new photos into the tray, export
 web-sized copies (about 2400px on the long side) into the project's folder, e.g.
-`images/fairmont-mayakoba/`, and reopen the tray.
+`images/fairmont-mayakoba/`, and reopen the tray. Use WebP, and name files for the property and space,
+e.g. `fairmont-mayakoba-riviera-maya-main-pool-aerial.webp`.
 
 **Save layout** writes the new order and sizes straight into the page's HTML file.
 **Discard changes** reloads the page as last saved. Then commit and push as usual to publish.
 
 ## Which pages are arrangeable
 
-- `work/fairmont-mayakoba.html` — the whole project story (photos and text sections)
-- `hospitality.html` — gallery order (it's a masonry layout, so no sizes)
+- `work/fairmont-mayakoba/` — the whole case study (photos and text sections)
+- `work/club-med-charlevoix/` — the case study; its "Image needed" slots can be removed as photos go in
 - `index.html` — the Selected Work grid
+
+New case studies start from `work/_template/` (not linked or indexed). Copy the folder, rename it, fill the brackets.
 
 To make another section arrangeable, wrap it like the Fairmont page does: a
 `<!-- layout:NAME -->` / `<!-- /layout:NAME -->` pair around a container with

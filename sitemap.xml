@@ -2,32 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://citizennorth.co/</loc>
-    <lastmod>2026-09-16</lastmod>
-    <priority>1.0</priority>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
-    <loc>https://citizennorth.co/work.html</loc>
-    <lastmod>2026-09-16</lastmod>
-    <priority>0.9</priority>
+    <loc>https://citizennorth.co/services/</loc>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
-    <loc>https://citizennorth.co/services.html</loc>
-    <lastmod>2026-09-16</lastmod>
-    <priority>0.9</priority>
+    <loc>https://citizennorth.co/services/hotel-photography/</loc>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
-    <loc>https://citizennorth.co/hospitality.html</loc>
-    <lastmod>2026-09-16</lastmod>
-    <priority>0.8</priority>
+    <loc>https://citizennorth.co/services/hotel-lifestyle-photography/</loc>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
-    <loc>https://citizennorth.co/work/club-med-charlevoix.html</loc>
-    <lastmod>2026-09-16</lastmod>
-    <priority>0.7</priority>
+    <loc>https://citizennorth.co/services/hotel-video-production/</loc>
+    <lastmod>2026-11-27</lastmod>
   </url>
   <url>
-    <loc>https://citizennorth.co/work/fairmont-mayakoba.html</loc>
-    <lastmod>2026-09-16</lastmod>
-    <priority>0.7</priority>
+    <loc>https://citizennorth.co/services/hotel-campaign-production/</loc>
+    <lastmod>2026-11-27</lastmod>
+  </url>
+  <url>
+    <loc>https://citizennorth.co/services/hotel-restaurant-photography/</loc>
+    <lastmod>2026-11-27</lastmod>
+  </url>
+  <url>
+    <loc>https://citizennorth.co/services/hotel-renovation-opening-photography/</loc>
+    <lastmod>2026-11-27</lastmod>
+  </url>
+  <url>
+    <loc>https://citizennorth.co/approved-vendor/</loc>
+    <lastmod>2026-11-27</lastmod>
+  </url>
+  <url>
+    <loc>https://citizennorth.co/work/</loc>
+    <lastmod>2026-11-27</lastmod>
+  </url>
+  <url>
+    <loc>https://citizennorth.co/work/fairmont-mayakoba/</loc>
+    <lastmod>2026-11-27</lastmod>
+  </url>
+  <url>
+    <loc>https://citizennorth.co/work/club-med-charlevoix/</loc>
+    <lastmod>2026-11-27</lastmod>
+  </url>
+  <url>
+    <loc>https://citizennorth.co/about/</loc>
+    <lastmod>2026-11-27</lastmod>
+  </url>
+  <url>
+    <loc>https://citizennorth.co/contact/</loc>
+    <lastmod>2026-11-27</lastmod>
   </url>
 </urlset>

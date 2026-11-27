@@ -1,0 +1,7 @@
+# TODO: add 301s for every URL on the old Squarespace site (from citizennorth.co/sitemap.xml) before DNS switch.
+/index.html                     /                                  301
+/services.html                  /services/                         301
+/work.html                      /work/                             301
+/hospitality.html               /work/                             301
+/work/fairmont-mayakoba.html    /work/fairmont-mayakoba/           301
+/work/club-med-charlevoix.html  /work/club-med-charlevoix/         301
